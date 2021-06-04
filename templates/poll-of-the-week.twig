@@ -1,0 +1,53 @@
+<div class="suggestion-poll">
+    {% include 'pageheader.twig' %}
+
+    <div class="page-content">
+        <div class="user-content py-100">
+            <div class="container">
+                <div class="content">
+                    <form action="#" id="suggestion-poll">
+                        <div class="row mb-30">
+                            <div class="col-md-6">
+                                <div class="input-wrapper">
+                                    <label class="mb-10 bold-text" for="firstname">
+                                        Onderwerp van de poll
+                                    </label>
+
+                                    <input type="text" id="firstname" name="firstname" class="input py-10 px-20" placeholder="Onderwerp van de poll">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-wrapper">
+                                    <label class="mb-10 bold-text" for="firstname">
+                                        Waarom wil je deze poll graag zien?
+                                    </label>
+
+                                    <textarea class="input input-content p-20" placeholder="Ik wil antwoorden uit deze poll omdat..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                        {% for i in 1..4 %}
+                            <div class="col-md-6">
+                                <div class="input-wrapper mt-20">
+                                    <label class="mb-10 bold-text" for="antwoord-{{ i }}">
+                                        Suggestie antwoord {{ i }}
+                                    </label>
+
+                                    <input type="text" id="antwoord-{{ i }}" name="antwoord-{{ i }}" class="input py-10 px-20" placeholder="Antwoord {{ i }}">
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+
+                        <input type="submit" class="btn btn-primary mt-40" value="Stuur suggestie in"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

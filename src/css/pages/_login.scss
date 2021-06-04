@@ -1,0 +1,93 @@
+.login {
+    main {
+        display: flex;
+
+        .row {
+            flex: 1;
+        
+            .content-wrapper {
+                .login-form {
+                    max-width: 58rem;
+
+                    .error-msg {
+                        visibility: hidden;
+                        color: $red;
+
+                        &.show {
+                            visibility: visible;
+                        }
+                    }
+
+                    .input-wrapper {
+                        height: 10rem;
+
+                        &.error {
+                            border: .2rem solid $red;
+
+                            &:nth-of-type(1) {
+                                border-bottom: .1rem solid $red;
+                            }
+
+                            &:nth-of-type(2) {
+                                border-top: .1rem solid $red;
+                            }
+                        }
+
+                        &:nth-of-type(1) {
+                            background-color: $light-grey;
+                            border-radius: .5rem .5rem 0 0;
+                        }
+
+                        &:nth-of-type(2) {
+                            background-color: $white;
+                            border-radius: 0 0 .5rem .5rem;
+                        }
+
+                        .input-image {
+                            width: 5rem;
+                            text-align: center;
+
+                            img {
+                                vertical-align: middle;
+                            }
+                        }
+
+                        .input-group {
+                            position: relative;
+                            width: 100%;
+                            
+                            label {
+                                position: absolute;
+                                top: 0;
+                                pointer-events: none;
+                            }
+                        
+                            input {
+                                width: 100%;
+                                background-color: transparent;
+                                box-shadow: none;
+                                border: none;
+                                transition: .2s linear;
+
+                                &.active {
+                                    padding-top: 2.4rem;
+                                    transition: $global-transition;
+                                }
+                            }
+                        }
+                    }
+
+                    .form-options {
+                        a {
+                            color: $near-black;
+
+                            &:hover {
+                                color: $green;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

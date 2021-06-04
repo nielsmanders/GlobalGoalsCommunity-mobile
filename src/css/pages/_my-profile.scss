@@ -1,0 +1,54 @@
+.my-profile{
+    .user-data {
+        .user-info {
+            .user-info-data {
+                .user-info-data-top {
+                    .h3 {
+                        display: inline-block;
+                    }
+                }                
+            }
+            
+            .user-info-image {
+                @include circle(20rem);
+                box-shadow: $global-box-shadow;
+            }
+        }
+    }
+    
+    .user-info, .user-socials, .user-followers {
+        border-radius: $global-border-radius;
+        box-shadow: $global-box-shadow;
+    }
+    
+    
+    .user-socials {
+        max-width: 36rem;
+        margin-left: auto;
+        .user-socials-top {
+            h3 {
+                display: inline-block;
+            }
+        }
+
+        .user-social-icons {
+            .user-social-icon{
+                color: $highlight-dark;
+            }
+        }
+    }
+
+    .pen-icon {
+        color: $gray;
+        height: 2.5rem;
+    }
+
+    .user-followers {
+        .user-follower {
+            .follower-image {
+                @include circle(5rem);
+                box-shadow: $global-box-shadow;
+            }
+        }
+    }
+}

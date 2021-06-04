@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-xl-6 content-wrapper flex align-center justify-center background-offwhite">
+        <div class="register-form p-md-20">
+            <h1 class="h2 mb-10">Welkom bij<br /> {{ SITE_TITLE }}</h1>
+            <p class="mb-50 display-none-xs">Om content te kunnen plaatsen, reageren op content en om een eigen profiel te creëren moet er ingelogd zijn met een account.</p>
+            <p class="mb-30">Heb je al een account? <a href="/login/" class="bold-text text-highlight">Login</a></p>
+
+            <form id="register-form">
+                <div class="row mb-30">
+                    <div class="col-6">
+                        <div class="input-wrapper">
+                            <label class="mb-10 bold-text" for="firstname">Voornaam</label>
+                            <input type="text" id="firstname" name="firstname" class="input py-10 px-20" placeholder="Voornaam">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-wrapper">
+                            <label class="mb-10 bold-text" for="lastName">Achternaam</label>
+                            <input type="text" id="lastname" name="lastname" class="input py-10 px-20" placeholder="Achternaam">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-30">
+                    <div class="col-6">
+                        <div class="input-wrapper">
+                            <label class="mb-10 bold-text" for="email">Emailadres</label>
+                            <input type="email" id="email" name="email" class="input py-10 px-20" placeholder="Emailadres">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-wrapper">
+                            <label class="mb-10 bold-text" for="phone">Telefoonnummer</label>
+                            <input type="text" id="phone" name="phone" class="input py-10 px-20" placeholder="040 - 123 45 67">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-40">
+                    <div class="col-6">
+                        <div class="input-wrapper">
+                            <label class="mb-10 bold-text" for="password">Wachtwoord</label>
+                            <input type="password" id="password" name="password" class="input py-10 px-20" placeholder="Wachtwoord">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-wrapper">
+                            <label class="mb-10 bold-text" for="passwordRepeat">Herhaal wachtwoord</label>
+                            <input type="password" id="passwordRepeat" name="passwordRepeat" class="input py-10 px-20" placeholder="Herhaal wachtwoord">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-options mb-30">
+                    <label class="checkbox-wrapper mb-20">
+                        Ja, ik wil de wekelijkse nieuwsbrief ontvangen
+
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <span class="checkbox"></span>
+                    </label>
+
+                    <label class="checkbox-wrapper mb-20">
+                        Ik accepteer de <a href="/terms/" class="bold-text text-highlight">algemene voorwaarden</a> en de <a href="/privacy-policy/" class="bold-text text-highlight">privacy verklaring</a>
+
+                        <input type="checkbox" id="acceptTerms" name="acceptTerms">
+                        <span class="checkbox"></span>
+                    </label>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn btn-primary" type="submit">Maak een account aan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-xl-6 image-wrapper flex align-center justify-center background-highlight display-none-lg">
+        <img class="image" src="/images/register.png">
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.usps {
+    box-shadow: $global-box-shadow;
+    border-radius: $global-border-radius;
+    max-width: 45rem;
+
+    .circle {
+        height: 10rem;
+        width: 10rem;
+        border-radius: 50%;
+        box-shadow: $global-box-shadow;
+    }
+    
+    .usp-information {
+        width: 70%;
+    }
+}

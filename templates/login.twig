@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-xl-6 image-wrapper flex align-center justify-center background-highlight display-none-md">
+        <img class="image" src="/images/login.png">
+    </div>
+
+    <div class="col-xl-6 content-wrapper flex align-center justify-center background-offwhite">
+        <div class="login-form p-md-20">
+            <h1 class="h2 mb-md-0 mb-10">Hey, goed je te zien!</h1>
+            <p class="mb-10 display-none-xs">Om content te kunnen plaatsen, reageren op content en om een eigen profiel te creëren moet er ingelogd zijn met een account.</p>
+
+            <p class="error-msg mb-10">Er zijn op dit moment geen errors</p>
+
+            <form id="login-form">
+                <div class="input-wrapper flex align-center p-md-20 p-30">
+                    <div class="input-image mr-40">
+                        <img src="/images/mail_icon.png">
+                    </div>
+
+                    <div class="input-group flex flex-col">
+                        <label for="email">Emailadres</label>
+                        <input type="email" id="email" name="email" class="input bold-text">
+                    </div>
+                </div>
+
+                <div class="input-wrapper flex align-center mb-30 p-md-20 p-30">
+                    <div class="input-image mr-40">
+                        <img src="/images/key_icon.png">
+                    </div>
+
+                    <div class="input-group flex flex-col">
+                        <label for="password">Wachtwoord</label>
+                        <input type="password" id="password" name="password" class="input bold-text">
+                    </div>
+                </div>
+
+                <div class="form-options flex space-between align-center mb-30">
+                    <label class="checkbox-wrapper">
+                        Onthoud wachtwoord
+
+                        <input type="checkbox" id="remember" name="remember">
+                        <span class="checkbox"></span>
+                    </label>
+
+                    <a href="/forgot-password/">Wachtwoord vergeten?</a>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn btn-primary mb-md-20 mr-30" type="submit">Inloggen</button>
+                    <a class="btn btn-secondary" href="/register/">Account aanmaken</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

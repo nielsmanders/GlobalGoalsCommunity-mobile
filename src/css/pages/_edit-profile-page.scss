@@ -1,0 +1,60 @@
+.my-profile {
+
+    .edit-info-avatar {
+        position: relative;
+        @include circle(20rem);
+        box-shadow: $global-box-shadow;
+        transition: $global-transition;
+
+        &:hover {
+            background-color: $offwhite;
+            .avatar-hover {
+                display: block;
+            }
+            .avatar {
+                display: none;
+            }
+        }
+    }
+
+    .avatar-hover {
+        display: none;
+
+        .icon {
+            pointer-events: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    }
+
+    .custom-file-input {
+        color: transparent;
+        box-shadow: none;
+    }
+      
+    .custom-file-input::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    .custom-file-input {
+        display: inline-block;
+        @include circle(20rem);
+        padding: 3rem;
+        margin: 8rem 5rem 5rem 5rem;
+        outline: none;
+        white-space: nowrap;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .image-output {
+        visibility: hidden;
+    }
+
+    textarea {
+        resize: none;
+    }
+}

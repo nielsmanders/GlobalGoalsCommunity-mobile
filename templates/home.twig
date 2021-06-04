@@ -1,0 +1,548 @@
+<div class="homepage">
+    <div class="page-header header-home flex justify-center align-center py-md-40 py-200">
+        <img class="circles circles-header-home-left" src="/images/circles/circles.png">
+        <img class="circles circles-header-home-right rotate-190" src="/images/circles/circles.png">
+
+        <div class="container">
+            <div class="content">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="row justify-content-center">
+                            <div class="col-md-11">
+                                <h1 class="text-center text-left-sm">
+                                    Welkom {% if user_id %}terug{% endif %} bij<br /> Global <span class="text-highlight">Goals</span> Community {% if user_id %}{{ user_firstname }}{% endif %}!
+                                </h1>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center mt-xs-20 mt-40">
+                            <div class="col-md-8">
+                                <div class="text-center text-left-sm">
+                                    Dé plek om samen met anderen aan de slag te gaan met het verbeteren van de wereld. Aan de hand van de 17 Sustainable Development Goals kun je oplossingen delen en bekijken, meer leren over duurzaam leven en word je geïnspireerd om hier zelf mee aan de slag te gaan. Klinkt dit interessant? Kijk dan vooral rond!
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if not user_id %}
+                            <div class="flex flex-col-md align-center justify-center mt-40">
+                                <a href="/register/" class="btn btn-primary mr-md-0 mr-40 mb-md-20">
+                                    Meld je aan
+                                </a>
+
+                                <a href="#search-section" class="text-center">
+                                    Ga verder zonder <br/>aan te melden
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span class="scroll"></span>
+    </div>
+
+    <div class="page-content">
+        <div id="search-section" class="home-content background-highlight py-md-40 py-100">
+            <img class="circles circles-search-home-left" src="/images/circles/circles-transparent.png">
+
+            <div class="container">
+                <div class="content">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h2 class="text-highlight-dark">
+                                Kunnen we je helpen?
+                            </h2>
+
+                            <div class="text-white display-none-xs">
+                                Samen staan we namelijk sterker
+                            </div>
+
+                            <form id="search-form" class="mt-20">
+                                <div class="input-wrapper">
+                                    <input id="search-input" placeholder="Zoeken naar oplossingen" class="input-lg pl-60"/>
+                                    <label for="search-input" class="fas fa-search input-icon"></label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-4">
+                            <img src="images/father-and-child.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-content background-offwhite py-md-40 py-100">
+            <div class="container">
+                <div class="content">
+                    <div class="row align-items-center">
+                        <div class="col-xl-7 col-lg-6 col-md-12">
+                            <h2>
+                                Over Global <span class="text-highlight">Goals</span> Community
+                            </h2>
+
+                            <p class="mt-20 text-justify">
+                                Global Goals Community is een plek waar geïnteresseerde in duurzaam leven, samen komen om creaties of oplossingen met elkaar te delen. Onze missie is dan ook het inspireren en stimuleren om zelf aan de slag te gaan met het verwezenlijken van de SDG’s door het delen, bekijken en aandragen van de oplossingen.
+                            </p>
+
+                            <p class="mt-20 text-justify">
+                                Op verschillende manieren kunnen er ook prestaties verdiend worden. Ben jij super creatief en plaats je veel goede items of laat je graag je mening achter bij een oplossing? Hiervoor zijn allerlei badges te verdienen die je kunt laten zien aan de mensen uit de community.
+                            </p>
+
+                            <p class="mt-20 mb-md-20">
+                                <a href="/about-ggc/" class="flex flex-end flex-start-md flex-end-lg align-center bold-text">
+                                    Meer lezen over GGC <i class="fas fa-angle-right ml-10"></i>
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="offset-xl-1 col-xl-4 col-lg-6 col-md-8 overflow-hidden">
+                            <img class="full-width box-shadow border-radius" src="/images/impressie-def-ontwerp.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-content py-md-40 py-100">
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h2>
+                                Poll van de week
+                            </h2>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="flex flex-end flex-start-md flex-end-lg mt-md-20">
+                                <a href="/poll-of-the-week/" class="btn btn-primary">
+                                    <i class="fas fa-lightbulb mr-10"></i>
+                                    Suggestie doen
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="poll-container background-offwhite mt-md-40 mt-60 p-md-20 p-30">
+                        <h3 class="h2">
+                            Hoe vaak bent u bezig met het verwezenlijken van (een van de) SDG's?
+                        </h3>
+
+                        <div class="poll-answers mt-20">
+                            <div class="row mt-20">
+                                <div class="col-lg-6">
+                                    <label class="answer-container pl-30 py-15 background-white">
+                                        Nooit
+                                        <input type="radio" checked="checked" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label class="answer-container pl-30 py-15 background-white mt-md-20">
+                                        1-2 keer per week
+                                        <input type="radio" checked="checked" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="col-lg-6">
+                                    <label class="answer-container pl-30 py-15 background-white">
+                                        3-4 keer per week
+                                        <input type="radio" checked="checked" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label class="answer-container pl-30 py-15 background-white mt-md-20">
+                                        5-6 keer per week
+                                        <input type="radio" checked="checked" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="col-lg-6">
+                                    <label class="answer-container pl-30 py-15 background-white">
+                                        Elke dag
+                                        <input type="radio" checked="checked" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label class="answer-container pl-30 py-15 background-white mt-md-20">
+                                        Meerdere keren op een dag
+                                        <input type="radio" checked="checked" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="poll-bottom mt-20">
+                            <div class="row align-items-end">
+                                <div class="col-lg-7">
+                                    <div class="small-text">
+                                        Deze poll is actief sinds 2 juni 2020 10:45 uur
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5">
+                                    <div class="flex flex-end flex-start-md flex-end-lg mt-md-20">
+                                        <button class="btn btn-primary">
+                                            <i class="fas fa-check text-highlight-dark mr-10"></i>
+                                            Verstuur mijn antwoord
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-content background-highlight py-md-40 py-100">
+            <div class="container">
+                <div class="content">
+                    <div class="row align-items-center">
+                        <div class="col-xl-5 col-lg-6 col-md-8">
+                            <div class="overflow-hidden">
+                                <img class="full-width box-shadow border-radius" src="/images/sdg-poster.png">
+                            </div>
+                        </div>
+
+                        <div class="offset-xl-1 col-xl-6 col-lg-6 col-md-12">
+                            <h2 class="text-highlight-dark mb-20 mt-md-20">
+                                Over Sustainable Development Goals (SDG)
+                            </h2>
+
+                            <p class="text-white mt-40 text-justify">
+                                De Sustainable Development Goals, ook wel SDG’s genoemd, zijn zeventien doelen om van de wereld een betere plek te maken in 2030. Deze doelen zijn tot stand gekomen door wereldwijde inbreng van organisaties en individuen en zijn afgesproken door de landen die zijn aangesloten bij de Verenigde Naties.
+                            </p>
+
+                            <p class="text-white mt-40 text-justify">
+                                Waar de doelen veel aandacht aan besteden is vrede en veiligheid, economische ontwikkeling en milieuthema’s. Het is van belang dat niemand achterblijft en dat iedereen in staat is om te bouwen aan een betere toekomst.
+                            </p>
+
+                            <p class="mt-20">
+                                <a href="/about-sdg/" class="flex flex-end flex-start-md flex-end-lg align-center bold-text">
+                                    Meer lezen over SDG's <i class="fas fa-angle-right ml-10"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-content background-offwhite py-md-40 py-100">
+            <img class="circles circles-featured-home-right rotate-70" src="/images/circles/circles.png">
+
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xl-7">
+                            <h2>
+                                Uitgelichte oplossingen
+                            </h2>
+
+                            <div class="row mt-20">
+                                <div class="col-md-10">
+                                    Om bepaalde creaties ‘in het zonnetje te zetten’ is deze sectie gemaakt. Sommige creaties verdienen meer aandacht. Kijk eens of er een creatie tussen zit die misschien wel iets voor jou is!
+                                </div>
+                            </div>
+
+                            {% if featured_creations %}
+                                <div class="swiper-container mt-40">
+                                    <div class="swiper-wrapper">
+                                        {% for featured_creation in featured_creations %}
+                                            <div class="swiper-slide px-10">
+                                                <div class="content-overview-container">
+                                                    <div class="content-overview-image background-position-center background-size-cover {% if not featured_creation.image %}background-offwhite{% endif %}" style='{% if featured_creation.image %}background-image: url("{{ featured_creation.image }}");{% endif %}'>
+                                                        <div class="overview-sdg flex flex-col align-end py-md-20 p-30 ml-auto">
+                                                        {% for sdg in featured_creation.sdgs %}
+                                                            <a href="/sdgs/{{ sdg.id }}/{{ sdg.slug|replace({' ': '-', ',': ""}) }}/" class="label sdg-{{ sdg.number }} mt-20">
+                                                                {{ sdg.id }}. <span class="display-none-xs">{{ sdg.title|capitalize }}</span>
+                                                            </a>
+                                                        {% endfor %}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="content-overview-information p-md-20 p-30">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h3 class="m-0">
+                                                                    {{ featured_creation.title }}
+                                                                </h3>
+
+                                                                <div class="overview-writer bold-text">
+                                                                    <a href="/profile/{{ featured_creation.user_id }}/{{ featured_creation.creator_slug }}/">
+                                                                        Geplaatst door: {{ featured_creation.creator }} 
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="overview-date small-text mb-20">
+                                                                    {{ featured_creation.created|date("l j F Y \\o\\m H:i \\u\\u\\r") }}
+                                                                </div>
+
+                                                                <div class="overview-intro height-md mb-0">
+                                                                    {{ featured_creation.shortDescription }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="content-overview-actions px-md-20 px-30 pb-md-20 pb-30">
+                                                        <div class="row align-items-end">
+                                                            <div class="col-md-8">
+                                                                <a href="/creation/{{ featured_creation.id }}/{{ featured_creation.slug }}/" class="btn btn-primary">
+                                                                    Lees verder
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="col-md-4">
+                                                                <div class="overview-statistics flex flex-end flex-start-md flex-end-lg bold-text mt-md-20">
+                                                                    <div class="statistic statistic-viewed">
+                                                                        <i class="fa fa-eye"></i> {{ featured_creation.view_count }}
+                                                                    </div>
+
+                                                                    <div class="statistic statistic-liked ml-30">
+                                                                        <i class="fa fa-heart"></i> {{ featured_creation.like_count }}
+                                                                    </div>
+
+                                                                    <div class="statistic statistic-commented ml-30">
+                                                                        <i class="fa fa-comment"></i> {{ featured_creation.comment_count }}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    
+                                    <div class="swiper-pagination"></div>
+                                </div>
+
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            {% else %}
+                                <p class="mt-40">Op dit moment zijn er geen uitgelichte oplossingen...</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-xl-5">
+                            {% include 'usp-container.twig' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-content py-md-40 py-100">
+            <img class="circles circles-populair-home-left" src="/images/circles/circles-2x.png">
+            <img class="circles circles-populair-home-right" src="/images/circles/circles.png">
+
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h2>
+                                Populaire oplossingen
+                            </h2>
+
+                            <div class="row mt-20">
+                                <div class="col-lg-10">
+                                    Hieronder staan de populairste creaties van het platform. Deze zijn gebaseerd op het aantal weergaven. Zijn deze creaties hun plek waard?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-md-40 mt-60">
+                        {% if popular_creations %}
+                            {% for popular_creation in popular_creations %}
+                                <div class="col-lg-6">
+                                    <div class="content-overview-container mb-40">
+                                        <div class="content-overview-image background-position-center background-size-cover {% if not popular_creation.image %}background-offwhite{% endif %}" style='{% if popular_creation.image %}background-image: url("{{ popular_creation.image }}");{% endif %}'>
+                                            <div class="overview-sdg flex flex-col align-end py-md-20 p-30 ml-auto">
+                                            {% for sdg in popular_creation.sdgs %}
+                                                <a href="/sdgs/{{ sdg.id }}/{{ sdg.slug|replace({' ': '-', ',': ""}) }}/" class="label sdg-{{ sdg.number }} mt-20">
+                                                    {{ sdg.id }}. <span class="display-none-xs">{{ sdg.title|capitalize }}</span>
+                                                </a>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <div class="content-overview-information p-md-20 p-30">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h3 class="m-0">
+                                                        {{ popular_creation.title }}
+                                                    </h3>
+
+                                                    <div class="overview-writer bold-text">
+                                                        <a href="/profile/{{ popular_creation.user_id }}/{{ popular_creation.creator_slug }}/">
+                                                            Geplaatst door: {{ popular_creation.creator }} 
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="overview-date small-text mb-20">
+                                                        {{ popular_creation.created|date("l j F Y \\o\\m H:i \\u\\u\\r") }}
+                                                    </div>
+
+                                                    <div class="overview-intro height-md mb-0">
+                                                        {{ popular_creation.shortDescription }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content-overview-actions px-md-20 px-30 pb-md-20 pb-30">
+                                            <div class="row align-items-end">
+                                                <div class="col-md-8">
+                                                    <a href="/creation/{{ popular_creation.id }}/{{ popular_creation.slug }}/" class="btn btn-primary">
+                                                        Lees verder
+                                                    </a>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="overview-statistics flex flex-end flex-start-md flex-end-lg bold-text mt-md-20">
+                                                        <div class="statistic statistic-viewed">
+                                                            <i class="fa fa-eye"></i> {{ popular_creation.view_count }}
+                                                        </div>
+
+                                                        <div class="statistic statistic-liked ml-30">
+                                                            <i class="fa fa-heart"></i> {{ popular_creation.like_count }}
+                                                        </div>
+
+                                                        <div class="statistic statistic-commented ml-30">
+                                                            <i class="fa fa-comment"></i> {{ popular_creation.comment_count }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>Er zijn op dit moment nog geen creaties toegevoegd op het platform. Klik <a href="/add-content/">hier</a> om de eerste creatie toe te voegen!</p>
+                        {% endif %}
+                    </div>
+
+                    {# <a href="#" class="btn btn-primary mt-40">
+                        Ik wil meer populaire oplossingen zien
+                    </a> #}
+                </div>
+            </div>
+        </div>
+
+        <div class="home-content background-offwhite py-md-40 py-100">
+            <img class="circles circles-recent-home-left" src="/images/circles/circles.png">
+            <img class="circles circles-recent-home-right rotate-80" src="/images/circles/circles.png">
+
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h2>
+                                Nieuwste oplossingen
+                            </h2>
+
+                            <div class="row mt-20">
+                                <div class="col-lg-10">
+                                    De nieuwste oplossingen zijn oplossingen die als laatste zijn toegevoegd. Ben jij de eerste die een reactie achterlaat bij een nieuwe creatie?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-md-40 mt-60">
+                        {% if recent_creations %}
+                            {% for recent_creation in recent_creations %}
+                                <div class="col-lg-6 mt-lg-40 ">
+                                    <div class="content-overview-container mb-40">
+                                        <div class="content-overview-image background-position-center background-size-cover {% if not recent_creation.image %}background-offwhite{% endif %}" style='{% if recent_creation.image %}background-image: url("{{ recent_creation.image }}");{% endif %}'>
+                                            <div class="overview-sdg flex flex-col align-end py-md-20 p-30 ml-auto">
+                                            {% for sdg in recent_creation.sdgs %}
+                                                <a href="/sdgs/{{ sdg.id }}/{{ sdg.slug|replace({' ': '-', ',': ""}) }}/" class="label sdg-{{ sdg.number }} mt-20">
+                                                    {{ sdg.id }}. <span class="display-none-xs">{{ sdg.title|capitalize }}</span>
+                                                </a>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <div class="content-overview-information p-md-20 p-30">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h3 class="m-0">
+                                                        {{ recent_creation.title }}
+                                                    </h3>
+
+                                                    <div class="overview-writer bold-text">
+                                                        <a href="/profile/{{ recent_creation.user_id }}/{{ recent_creation.creator_slug }}/">
+                                                            Geplaatst door: {{ recent_creation.creator }} 
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="overview-date small-text mb-20">
+                                                        {{ recent_creation.created|date("l j F Y \\o\\m H:i \\u\\u\\r") }}
+                                                    </div>
+
+                                                    <div class="overview-intro height-md mb-0">
+                                                        {{ recent_creation.shortDescription }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content-overview-actions px-md-20 px-30 pb-md-20 pb-30">
+                                            <div class="row align-items-end">
+                                                <div class="col-md-8">
+                                                    <a href="/creation/{{ recent_creation.id }}/{{ recent_creation.slug }}/" class="btn btn-primary">
+                                                        Lees verder
+                                                    </a>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="overview-statistics flex flex-end flex-start-md flex-end-lg bold-text mt-md-20">
+                                                        <div class="statistic statistic-viewed">
+                                                            <i class="fa fa-eye"></i> {{ recent_creation.view_count }}
+                                                        </div>
+
+                                                        <div class="statistic statistic-liked ml-30">
+                                                            <i class="fa fa-heart"></i> {{ recent_creation.like_count }}
+                                                        </div>
+
+                                                        <div class="statistic statistic-commented ml-30">
+                                                            <i class="fa fa-comment"></i> {{ recent_creation.comment_count }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>Er zijn op dit moment nog geen creaties toegevoegd op het platform. Klik <a href="/add-content/">hier</a> om de eerste creatie toe te voegen!</p>
+                        {% endif %}
+                    </div>
+
+                    {# <a href="#" class="btn btn-primary mt-40">
+                        Ik wil meer recente oplossingen zien
+                    </a> #}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

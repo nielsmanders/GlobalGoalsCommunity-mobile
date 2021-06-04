@@ -1,0 +1,7 @@
+{% if achievements_page == 'achieved' %}
+    {% include 'achievements/achieved.twig' %}
+{% elseif achievements_page == 'not-achieved' %}
+    {% include 'achievements/not-achieved.twig' %}
+{% else %}
+    {% include 'achievements/achievements.twig' %}
+{% endif %}

@@ -1,0 +1,60 @@
+.page-header {
+    background-color: $offwhite;
+    min-height: 50vh;
+    box-shadow: $global-box-shadow;
+    position: relative;
+
+    p {
+        line-height: 2;
+    }
+}
+
+.circles {
+    z-index: 0;
+    position: absolute;
+    width: 30rem;
+
+    @include breakpoint ('bp-lg') {
+        width: 25rem;
+        height: auto;
+    }
+
+    @include breakpoint ('bp-md') {
+        width: 15rem;
+        height: auto;
+    }
+
+    @include breakpoint ('bp-xs') {
+        display: none;
+    }
+}
+
+.circles-header-left {
+    left: -10rem;
+    top: 10rem;
+
+    @include breakpoint ('bp-lg') {
+        left: -10rem;
+        top: 7rem;
+    }
+
+    @include breakpoint ('bp-md') {
+        left: -3rem;
+        top: 10rem;
+    }
+}
+
+.circles-header-right {
+    right: -10rem;
+    bottom: 10rem;
+
+    @include breakpoint ('bp-lg') {
+        right: -10rem;
+        bottom: 7rem;
+    }
+
+    @include breakpoint ('bp-md') {
+        right: -3rem;
+        bottom: 10rem;
+    }
+}

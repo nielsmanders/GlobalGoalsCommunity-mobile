@@ -1,0 +1,58 @@
+{% include 'pageheader.twig' %}
+
+<div class="page-content py-md-40 py-100">    
+    <div class="content-information py-30">
+        
+        <img class="circles circles-content-left rotate-190" src="/images/circles/circles.png">
+
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>
+                            SDG Nederland
+                        </h2>
+
+                        <div class="row mt-40">
+                            <div class="col-md-10">
+                                <p class="mb-20">Waar de doelen veel aandacht aan besteden is vrede en veiligheid, economische ontwikkeling en milieuthema’s. Het is van belang dat niemand achterblijft en dat iedereen in staat is om te bouwen aan een betere toekomst.</p>
+
+                                <p class="mb-20">De SDG’s hebben betrekking op alle landen in de wereld en al zijn inwoners. De focus verschilt per land, maar overal is nog veel werk aan de winkel.</p>
+
+                                <p class="mb-20">Er zijn al verschillende initiatieven en campagnes om een bijdrage te leveren aan het behalen van de SDG’s. Om een steentje hieraan bij te dragen is Global Goals Community ontwikkeld. Een plek om elkaar te inspireren, stimuleren en motiveren om aan de slag te gaan met het verwezenlijken van de SDG’s.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <h2 class="mt-md-40">
+                            Alle SDG's
+                        </h2>
+                        <div class="row mt-40">
+                            {% for sdg in sdgs %}
+                            <div class="col-12">
+                                <div class="mb-lg-40 mb-md-20 mb-60">
+                                    <a class="sdg-wrapper" href="/sdgs/{{ sdg.id }}/{{ sdg.slug|replace({' ': '-', ',': ""}) }}/">
+                                        <div class="sdg sdg-{{ sdg.number }} flex flex-col space-between p-lg-20 p-30">
+                                            <div class="h3">
+                                                {{ sdg.id }}
+                                            </div>
+
+                                            <h3>
+                                                {{ sdg.title }}
+                                            </h3>
+
+                                            <img class="sdg-icon" src="/images/sdg/icon-sdg-{{ sdg.number }}.svg">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

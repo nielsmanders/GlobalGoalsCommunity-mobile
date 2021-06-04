@@ -1,0 +1,57 @@
+.background-offwhite {
+    background-color: $offwhite;
+}
+
+.background-white {
+    background-color: $white;
+}
+
+.background-highlight {
+    background-color: $highlight !important;
+}
+
+.background-highlight-dark {
+    background-color: $highlight-dark !important;
+}
+
+.border-radius {
+    border-radius: $global-border-radius;
+}
+
+.box-shadow {
+    box-shadow: $global-box-shadow;
+}
+
+.transition {
+    transition: $global-transition;
+}
+
+.container {
+    max-width: 320px;
+    margin: 0 auto;
+
+    .content {
+        width: 100%;
+    }
+
+    @include breakpoint('bp-xl') {
+        max-width: 1320px;
+    }
+
+    @include breakpoint('bp-lg') {
+        max-width: 950px;
+    }
+
+    @include breakpoint('bp-md') {
+        max-width: 580px;
+        padding: 10px 0;
+    }
+
+    @include breakpoint('bp-sm') {
+        padding: 15px 0;
+    }
+
+    @include breakpoint('bp-xs') {
+        padding: 0 20px;
+    }    
+}

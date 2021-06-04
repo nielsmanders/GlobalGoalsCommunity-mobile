@@ -1,0 +1,153 @@
+header {
+    z-index: 999;
+    position: fixed;
+    top: -.1rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 8rem;
+    box-shadow: 0 .3rem .6rem rgba($black, .16);
+
+    .container {
+        height: 100%;
+        padding: 0;
+
+        .content {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+
+            .logo {
+                img {
+                    margin-bottom: -.5rem;
+                }
+            }
+
+            .menu-items {
+                text-align: center;
+
+                a {
+                    position: relative;
+                    color: $near-black;
+
+                    &:hover {
+                        color: $highlight;
+                    }
+
+                    &:not(:last-of-type) {
+                        margin-right: 6.7rem;
+                    }
+
+                    &.active {
+                        &:hover {
+                            color: $near-black;
+                        }
+
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            bottom: -2.9rem;
+                            left: -1rem;
+                            width: calc(100% + 2rem);
+                            height: .4rem;
+                            background-color: $highlight;
+                        }
+                    }
+                }
+            }
+
+            .menu-options {
+                .lang {
+                    span {
+                        cursor: pointer;
+                    }
+                }
+
+                .btn-register {
+                    &:hover {
+                        color: $highlight;
+                    }
+                }
+            }
+
+            .toggle {
+                display: none;
+
+                @include breakpoint ('bp-lg') {
+                    display: flex;
+                }
+
+                .menu-icon {
+                    position: absolute;
+                    right: 0;
+                }
+
+                #times {
+                    opacity: 0;
+                }
+            }
+
+            .menu-desktop {
+
+                @include breakpoint ('bp-lg') {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .menu-mobile {
+        z-index: 999;
+        position: absolute;
+        display: none;
+        height: calc(100vh - 7.6rem);
+        top: 7.8rem;
+        left: -.1rem;
+        right: -.1rem;
+        overflow: hidden;
+
+        &.closed {
+            height: 0;
+        }
+
+        .menu-items {
+            height: 100%;
+        }
+
+        @include breakpoint('bp-lg') {
+            display: block;
+        }
+    }
+}
+
+.user-menu {
+    position: relative;
+    cursor: pointer;
+
+    .user-menu-avatar {
+        @include circle(3.6rem);
+    }
+
+    .user-menu-options {
+        position: absolute;
+        right: 0;
+        top: 7rem;
+        min-width: 25rem;
+        height: 0;
+        overflow: hidden;
+
+        a {
+            color: $near-black;
+
+            &:hover {
+                color: $highlight;
+            }
+        }
+
+        &.open {
+            height: auto;
+        }
+    }
+}

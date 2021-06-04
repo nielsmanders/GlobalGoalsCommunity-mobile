@@ -1,0 +1,264 @@
+{% include 'profile-menu.twig' %}
+
+<div class="page-content background-offwhite">
+    <div class="container py-100">
+        <div class="content">
+            <div class="row mb-50">
+                <div class="col-md-7 offset-md-2">
+                    <div class="user-data">
+                        <div class="user-info background-white p-30">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="user-info-data">
+                                        <div class="user-info-data-top">
+                                            <h1 class="h3 mb-20"> 
+                                                {{ user.name }} 
+                                            </h1>
+                                            
+                                            <a href="/my-profile/edit/" class="pen-icon ml-30">
+                                                <i class="fas fa-pen fa-2x"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="user-info-data-title bold-text">
+                                                    <p class="mb-15">
+                                                        Geboortedatum: 
+                                                    </p>
+                                                </div> 
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="user-info-data-text ">
+                                                    <p class="mb-15">
+                                                        {{ user.date_of_birth|date("d-m-Y") }} 
+                                                    </p>
+                                                </div> 
+                                            </div>
+                                        </div>
+                            
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="user-info-data-title bold-text">
+                                                    <p class="mb-15">
+                                                        Telefoonnummer: 
+                                                    </p>
+                                                </div> 
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="user-info-data-text ">
+                                                    <p class="mb-15">
+                                                        {{ user.phone }} 
+                                                    </p>
+                                                </div> 
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="user-info-data-title bold-text">
+                                                    <p class="mb-15">
+                                                        Woonplaats: 
+                                                    </p>
+                                                </div> 
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="user-info-data-text ">
+                                                    <p class="mb-15">
+                                                       {% if user.city %}{{ user.city }},{% endif %} {{user.country}}
+                                                    </p>
+                                                </div> 
+                                            </div>
+                                        </div>
+                            
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="user-info-data-title bold-text">
+                                                    <p class="mb-15">
+                                                        E-mailadres: 
+                                                    </p>
+                                                </div> 
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="user-info-data-text ">
+                                                    <p class="mb-15">
+                                                        {{ user.email }}
+                                                    </p>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="user-info-image mr-20 flex align-center justify-center background-white {% if user.avatar %}background-position-center background-size-cover{% endif %}" {% if user.avatar %}style="background-image: url('{{ user.avatar }}');"{% endif %}>
+                                        {% if not user.avatar %}
+                                            <i class="fas fa-user h1 text-gray"></i>
+                                        {% endif %}
+                                    </div>    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="user-info-bio">
+                                        <div class="bold-text mb-15">
+                                            Biografie: 
+                                        </div>
+
+                                        <p>
+                                            {{ user.bio }}
+                                        </p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="user-socials background-white p-30">
+                        <div class="user-socials-top">
+                            <h3 class="mb-20"> 
+                                Socials 
+                            </h3>
+                                            
+                            <a href="/my-profile/edit/" class="pen-icon ml-30">
+                                <i class="fas fa-pen fa-2x"></i>
+                            </a>
+                        </div>
+
+                        <div class="user-social-icons">
+                            <div class="row align-items-center mb-40">
+                                <div class="col-md-3"> 
+                                    <div class="user-social-icon">
+                                        <i class="fab fa-twitter fa-3x"></i>
+                                    </div>
+                                </div> 
+                                
+                                <div class="col-md-9"> 
+                                    <div>
+                                        {{ user.twitter }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mb-40">
+                                <div class="col-md-3"> 
+                                    <div class="user-social-icon">
+                                        <i class="fab fa-instagram fa-3x"></i>
+                                    </div>
+                                </div> 
+                                
+                                <div class="col-md-9"> 
+                                    <div>
+                                        {{ user.instagram }}
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="row align-items-center mb-40">
+                                <div class="col-md-3"> 
+                                    <div class="user-social-icon">
+                                        <i class="fab fa-facebook-square fa-3x"></i>
+                                    </div>
+                                </div> 
+                                
+                                <div class="col-md-9"> 
+                                    <div>
+                                        {{ user.facebook }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mb-40">
+                                <div class="col-md-3"> 
+                                    <div class="user-social-icon">
+                                        <i class="fab fa-linkedin fa-3x"></i>
+                                    </div>
+                                </div> 
+                                
+                                <div class="col-md-9"> 
+                                    <div>
+                                        {{ user.linkedin }} 
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="row align-items-center">
+                                <div class="col-md-3"> 
+                                    <div class="user-social-icon">
+                                        <i class="fab fa-youtube fa-3x"></i>
+                                    </div>
+                                </div> 
+                                
+                                <div class="col-md-9"> 
+                                    <div>
+                                        {{ user.youtube }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-10 offset-md-2">
+                    <div class="user-followers background-white p-30">
+                        <div class="user-follower">
+                            <h3 class="mb-20"> 
+                                {{ user.follower_count }} {% if user.follower_count == 1 %}persoon{% else %}personen{% endif %} die ik volg 
+                            </h3>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-wrapper">
+                                        <input id="search-input" placeholder="Zoeken naar oplossingen" class="input-md"/>
+                                        <label for="search-input" class="fas fa-search input-icon"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-20">
+                                {% for follower in user.followers %}
+                                    <div class="col-md-6">
+                                        <div class="row mb-20">
+                                            <div class="col-md-2">
+                                                <button class="btn btn-orange user-follow-check"> 
+                                                    <i class="fas fa-user-check"></i>
+                                                </button>
+                                            </div>
+                    
+                                            <div class="col-md-10">
+                                                <div class="flex align-center pl-20">
+                                                    <div class="follower-image mr-20 flex align-center justify-center background-white {% if follower.avatar %}background-position-center background-size-cover{% endif %}" {% if follower.avatar %}style="background-image: url('{{ follower.avatar }}');"{% endif %}>
+                                                        {% if not follower.avatar %}
+                                                            <i class="fas fa-user text-gray"></i>
+                                                        {% endif %}
+                                                    </div>                                                    
+
+                                                    <div class="follower-information">
+                                                        <p class="bold-text"> 
+                                                            {{ follower.name }}
+                                                        </p>
+                                                
+                                                        <p> 
+                                                            {{ follower.follower_count }} {% if follower.follower_count == 1 %}volger{% else %}volgers{% endif %}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>                    
+                                        </div>
+                                    </div>
+                                {% endfor %} 
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+.creation {
+
+    .swal2-popup {
+        border-radius: $global-border-radius;
+        box-shadow: $global-box-shadow;
+
+        .swal2-confirm {
+            background-color: $highlight;
+            border-color: transparent;
+        }
+    }
+
+    .circles-content-left {
+        left: -16rem;
+        bottom: 30rem;
+    }
+
+    .circles-content-right {
+        right: -5rem;
+        top: 6rem;
+    }
+
+    .date {
+        color: $gray;
+    }
+
+    .statistics {
+        color: $gray;
+    }
+
+    .content-information {
+        position: relative;
+
+        .user-profile {
+            .user-profile-image {
+                @include circle(5rem);
+                box-shadow: $global-box-shadow;
+            }
+
+            img {
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        .content-image {
+            width: 100%; 
+            border-radius: $global-border-radius;
+            box-shadow: $global-box-shadow;
+        }
+
+        .statistics-bottom {
+            border-bottom: .1rem solid $gray;
+        }
+
+        .content-actions {
+            .action {
+                cursor: pointer;
+                transition: $global-transition;
+
+                &:hover,
+                &.liked {
+                    color: $highlight;
+                }
+
+                &#report {
+                    &:hover,
+                    &.reported {
+                        color: $red;
+                    }
+                }
+            }
+        }
+
+        .recent-solutions {
+            max-width: 45rem;
+        }
+
+        .populair-sdgs {
+            max-width: 45rem;
+        }
+    }
+
+    .add-comment {
+        position: relative;
+        
+        .comment-input {
+            input,
+            textarea {
+                border: .2rem solid transparent;
+
+                &.error {
+                    border: .2rem solid $red;
+                }
+            }
+
+            .input-title {
+                height: 6rem;
+            }
+
+            .input-content {
+                height: 20rem;
+            }
+        }
+    }
+
+    .comments {
+
+        .comment {
+            background-color: $white;
+            box-shadow: $global-box-shadow;
+            border-radius: $global-border-radius;
+
+            .hot-comment {
+                background-color: $orange;
+                color: $white;
+            }
+
+            .like-comment {
+                display: inline-block;
+                color: $gray;
+                cursor: pointer;
+                transition: $global-transition;
+
+                &:hover,
+                &.liked {
+                    color: $highlight
+                }
+            }
+        }
+    }
+
+    .green {
+        color: $highlight;
+        background: none;
+    }
+
+    .show-arrow {
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        &:hover .hidden {
+            visibility: visible;
+        }
+    }
+}
+

@@ -1,0 +1,9 @@
+{% if add_content_page == 'article' %}
+    {% include 'add-content/article.twig' %}
+{% elseif add_content_page == 'how-to' %}
+    {% include 'add-content/how-to.twig' %}
+{% elseif add_content_page == 'video' %}
+    {% include 'add-content/video.twig' %}
+{% elseif add_content_page == 'podcast' %}
+    {% include 'add-content/podcast.twig' %}
+{% endif %}

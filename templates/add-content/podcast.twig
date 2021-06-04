@@ -1,0 +1,161 @@
+{% include 'profile-menu.twig' %}
+
+<div class="page-content background-offwhite">
+
+    <div class="container py-md-40 py-100">
+        <div class="content">
+            <div class="row">
+                <div class="col-md-10 offset-md-2">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h1 class="h3 mb-20">
+                                Content toevoegen
+                            </h1>
+
+                            <p class="mb-20">
+                                Er kan op maar liefst op 4 verschillende manieren content toegevoegd worden. Dit kan in de vorm van een artikel, how-to instructie, een video en een podcast. Klik op het soort artikel dat je wil aanmaken en vul alle velden in. Succes!
+                            </p>
+                        </div>
+                    </div>
+
+                    {% include 'content-type.twig' %}
+
+                    <form id="add-content" method="POST" enctype="multipart/form-data" action="">
+                        <input type="hidden" name="action" value="add-content">
+                        <input type="hidden" name="type" value="4">
+
+                        <div class="input-wrapper">
+                            <label for="input-title" class="h3">
+                                Hoe wil je de podcast noemen?
+                            </label>
+
+                            <input id="input-title" class="input mt-20 p-20 input-title mb-100" name="title" placeholder="Titel van de podcast" value="{{ formData.title }}" required>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label for="input-short-description" class="h3">
+                                Geef de podcast een korte beschrijving (max. 300)
+                            </label>
+
+                            <div class="shortDescription-wrapper flex flex-col mb-100">
+                                <textarea id="input-short-description" class="input mt-20 p-20 input-short-description mb-10" name="shortDescription" rows="4" maxlength="300" placeholder="Korte beschrijving van de podcast">{{ formData.shortDescription }}</textarea>
+                                <p class="shortDescription-count-wrapper small-text">(<span class="shortDescription-count">0</span> / 300)</p>
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <p class="h3 {% if error == "video" %}text-red{% endif %}">
+                                Upload hier de podcast:
+                            </p>
+
+                            {% if error == "video" %}
+                                <small class="text-red">Dit type bestand wordt niet ondersteunt!</small>
+                            {% endif %}
+
+                            <div class="input-wrapper mb-100 mt-30 bold-text flex">
+                                <input class="inputVideo" id="video" name="video" type="file" accept="audio/*" required>
+                                
+                                <label for="video">
+                                    <i class="fas fa-headphones mr-10"></i>
+                                    <span class="outputVideo">Upload de podcast (mp3, ogg)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="h3">
+                                Welke SDG('s) sluit(en) aan bij deze podcast? (max. 2)
+                            </label>
+
+                            <div class="row mt-20 mb-100">
+                                {% set sdg_count = 0 %}
+                                
+                                {% for sdg in sdgs %}
+                                    {% if sdg_count == 0 %}
+                                        <div class="col-lg-4 col-12 pb-10">
+                                    {% endif %}
+
+                                            <div class="flex flex-row pb-10" style="min-height: 4rem">
+                                                <label class="checkbox-wrapper">
+                                                    <div class="flex">
+                                                        <span class="mr-10">{{ sdg.id }}.</span>
+                                                        <span>{{ sdg.title|capitalize }}</span>
+                                                    </div>
+
+                                                    <input type="checkbox" class="sdg-checkbox" name="sdgs[]" value="{{ sdg.id }}" {% for checkedSdg in formData.sdgs %}{% if checkedSdg == sdg.id %}checked{% endif %}{% endfor %}>
+
+                                                    <span class="checkbox"></span>
+                                                </label>
+                                            </div>
+
+                                    {% if sdg_count == 5 or loop.last %}
+                                        {% set sdg_count = 0 %}
+                                        </div>
+                                    {% else %}
+                                        {% set sdg_count = sdg_count + 1 %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <p class="h3 {% if error == "image" %}text-red{% endif %}">
+                                Wil je een afbeelding op de voorkant?
+                            </p>
+
+                            {% if error == "image" %}
+                                <small class="text-red">Dit type bestand wordt niet ondersteunt!</small>
+                            {% endif %}
+
+                            <div class="input-wrapper mb-100 mt-30 bold-text flex">
+                                <input class="inputfile" id="header-image" name="header-image" accept="image/*" type="file">
+                                
+                                <label for="header-image">
+                                    <i class="fas fa-images mr-10"></i>
+                                    <span class="output">Upload een afbeelding (jpg, jpeg, png)</span>
+                                </label>
+                            </div>
+                        </div>
+               
+                        <div class="input-wrapper">
+                            <label for="input-content" class="h3">
+                                Hier kan de inhoud worden toegevoegd:
+                            </label>
+
+                            <textarea id="input-content" class="input input-content full-width mt-20 p-20 mb-30" name="content" placeholder="Inhoud van de podcast" required>{{ formData.content }}</textarea>
+                        </div>
+
+                        {# Not working yet #}
+                        {# <div class="flex align-items-center">
+                                
+                            <span class="add-textfield bold-text mr-20">
+                                <i class="fas fa-paragraph input-icon mr-10"></i>
+                                Voeg een tekstveld toe
+                            </span>
+
+                            <div class="bold-text">
+                                <input class="inputfile" id="file" type="file">
+                                
+                                <label for="file">
+                                    <i class="fas fa-images input-icon mr-10"></i>
+                                    Voeg een afbeelding toe
+                                </label>
+
+                                <label class="output ml-20 bold-text"></label>
+                            </div>
+                        </div> #}
+
+                        {# <hr class="fullwidth mt-40 mb-20"> #}
+
+                        <div class="flex flex-end">
+                            <button class="add-textfield bold-text" type="submit">
+                                <i class="fas fa-upload input-icon mr-10"></i>
+                                Publiceer de video
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

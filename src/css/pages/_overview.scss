@@ -1,0 +1,32 @@
+.overview {
+    .user-tile {
+        h3 {
+            min-height: 7.4rem;  
+        }
+        div {
+            min-height: 12.4rem;
+        }
+    }
+    .user-tile {
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+            background-color: $highlight;
+            color: $white;
+        }     
+    }   
+
+    .overview-icon {
+        position: absolute;
+        bottom: -1rem;
+        right: -4.5rem;
+        z-index: 0;
+        opacity: .25;
+        transition: none;
+    }
+
+    .log-out-icon {
+        right: -1rem !important;
+    }
+}

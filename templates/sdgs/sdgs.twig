@@ -1,0 +1,29 @@
+{% include 'pageheader.twig' %}
+
+<div class="page-content">
+    <div class="container py-xs-40 py-100">
+        <div class="content">
+            <div class="row">
+                {% for sdg in sdgs %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mb-lg-40 mb-md-20 mb-60">
+                            <a class="sdg-wrapper" href="/sdgs/{{ sdg.id }}/{{ sdg.slug|replace({' ': '-', ',': ""}) }}/">
+                                <div class="sdg sdg-{{ sdg.number }} flex flex-col space-between p-lg-20 p-30 margin-auto">
+                                    <div class="h3">
+                                        {{ sdg.id }}
+                                    </div>
+
+                                    <h3>
+                                        {{ sdg.title }}
+                                    </h3>
+
+                                    <img class="sdg-icon" src="/images/sdg/icon-sdg-{{ sdg.number }}.svg">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

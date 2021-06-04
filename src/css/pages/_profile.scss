@@ -1,0 +1,102 @@
+.profile {
+    .user-profile-image-container {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 5000;
+        top: 0;
+        background-color: rgba(0,0,0,0.5);
+        display: none;
+
+        .user-profile-image-large {
+            width: 70rem;
+            height: 70rem;
+            border-radius: $global-border-radius;
+            box-shadow: $global-box-shadow;
+
+            @include breakpoint ('bp-lg') {
+                width: 60rem;
+                height: 60rem;
+            }
+
+            @include breakpoint ('bp-md') {
+                width: 50rem;
+                height: 50rem;
+            }
+
+            @include breakpoint ('bp-sm') {
+                width: 40rem;
+                height: 40rem;
+            }
+
+            @include breakpoint ('bp-xs') {
+                width: 30rem;
+                height: 30rem;
+            }
+        }
+
+        .exit-image {
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            background-color: $offwhite;
+            border-radius: $global-border-radius;
+            box-shadow: $global-box-shadow;
+
+            &:hover {
+                cursor: grab;
+                background-color: $highlight;
+                color: $offwhite;
+            }
+
+            .exit-image-icon {
+                width: 4rem;
+                height: 4rem;
+                font-weight: bold;
+
+                @include breakpoint ('bp-xs') {
+                    width: 2rem;
+                    height: 2rem;
+                    font-weight: regular;
+                }
+            }
+        }
+    }
+
+    .user-header {
+        .user-follow {
+            .user-social-link {
+                transition: $global-transition;
+                
+                &:hover {
+                    color: $highlight;
+                }
+            }
+        }
+    
+        .user-profile-image {
+            @include circle(20rem);
+            box-shadow: $global-box-shadow;
+
+            &:hover {
+                cursor: grab;
+            }
+        }
+    
+        .user-statistics {
+            .user-statistic {
+                display: inline-block;
+            }
+        }
+    }
+    
+    .user-socials-container {
+        .user-social {
+            transition: $global-transition;
+    
+            &:hover {
+                color: $highlight;
+            }
+        }
+    }
+}

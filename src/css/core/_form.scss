@@ -1,0 +1,166 @@
+input,
+textarea {
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    box-shadow: $global-box-shadow;
+    border-radius: $global-border-radius;
+}
+
+.input-wrapper {
+    position: relative;
+
+    label {
+        display: block;
+    }
+
+    input {
+        width: 100%;
+        background-color: $white;
+        box-shadow: $global-box-shadow;
+        border: .2rem solid transparent;
+        border-radius: $global-border-radius;
+
+        &.error {
+            border: .2rem solid $red;
+        }
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    .input-icon{
+        position: absolute;
+        left: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $white;
+    }
+
+    
+    .input-lg {
+        background-color: $highlight-dark !important;
+        color: $offwhite;
+        height: 7.2rem;
+        width: 100%;
+        border: none;
+        border-radius: $global-border-radius;
+        box-shadow: $global-box-shadow;
+
+        &::placeholder {
+            color: $offwhite;
+        }
+    }
+}
+
+.input-md {
+    background-color: $white;
+    color: $gray;
+    height: 4.2rem;
+    width: 100%;
+    border: none;
+    border-radius: $global-border-radius;
+    box-shadow: $global-box-shadow;
+ 
+    &::placeholder {
+        color: $gray;
+    }
+
+    @include breakpoint ('bp-md') {
+        height: 6rem;
+    }
+}
+
+.checkbox-wrapper {
+    display: block;
+    position: relative;
+    padding-left: 4.2rem;
+    cursor: pointer;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2rem;
+        width: 2rem;
+        border: .2rem solid $highlight;
+        border-radius: $global-border-radius;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: .7rem;
+            top: -.4rem;
+            width: 1rem;
+            height: 1.7rem;
+            border: solid #05A66B;
+            border-width: 0 .4rem .4rem 0;
+            transform: rotate(45deg);
+        }
+    }
+    
+    input:checked ~ .checkbox {
+        &:after {
+            display: block;
+        }
+    }
+
+    &.error {
+        color: $red;
+        font-weight: bold;
+
+        .checkbox {
+            border-color: $red;
+        }
+    }
+}
+
+.inputfile,
+.inputVideo {
+	width: .01rem;
+	height: .01rem;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label,
+.inputVideo + label,
+.add-textfield {
+    color: $white;
+    background-color: $highlight;
+    border-radius: $global-border-radius;
+    box-shadow: $global-box-shadow;
+    padding: 1.5rem 3rem;
+
+    .input-icon {
+        color: $highlight-dark;
+        position: initial;
+    }
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover,
+.inputVideo:focus + label,
+.inputVideo + label:hover,
+.add-textfield:hover {
+    cursor: pointer;
+    background-color: darken($highlight, 5%);
+}
+
+.input-content {
+    min-height: 20rem;
+    max-width: 100%;
+}

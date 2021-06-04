@@ -1,0 +1,211 @@
+{% include 'pageheader.twig' %}
+
+<div class="page-content py-100">
+    <div class="sdg-content">
+        <div class="container">
+            <div class="content">
+                {% include 'breadcrumbs.twig' %}
+
+                <div class="row mt-40">
+                    <div class="col-7">
+                        <h2 class="mb-20">
+                            Waar ben je naar opzoek?
+                        </h2>
+
+                        <form id="search-form" class="mb-50">
+                            <div class="input-wrapper">
+                                <input id="search-input" class="input input-title p-20 full-width" placeholder="Waar ben je naar opzoek?" value="{{ search }}">
+                                {% if search %}
+                                    <span class="delete-search cross">
+                                        <i class="fas fa-times-circle"></i>
+                                    </span>
+                                {% endif %}
+                            </div>
+                        </form>
+
+                        <h2 class="mb-40">
+                            Alle resultaten
+                        </h2>
+
+                        <div class="sort flex space-between mb-30">
+                            <div>
+                                {% if creation_count == 1%}
+                                    Er is {{ creation_count }} resultaat
+                                {% else %}
+                                    Er zijn {{ creation_count }} resultaten
+                                {% endif %}
+                            </div>
+                            <div class="sort-by flex align-center">
+                                <div class="bold-text pr-30">
+                                    Sorteren:
+                                </div>
+
+                                <select id="sort" data-url="{{ SITE_URL }}sdgs/{{ sdg.id }}/{{ sdg.slug }}/" class="dropdown bold-text background-offwhite p-10" name="sort-by" id="category">
+                                    <option value="recent" {% if sort == 'recent' %}selected{% endif %}>Recent</option>
+                                    <option value="likes" {% if sort == 'likes' %}selected{% endif %}>Likes</option>
+                                    <option value="comments" {% if sort == 'comments' %}selected{% endif %}>Comments</option>
+                                    <option value="popular" {% if sort == 'popular' %}selected{% endif %}>Populariteit</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        {% if creations %}
+                            {% for creation in creations %}
+                                <div class="content-overview-container mb-40">
+                                    <div class="content-overview-image background-position-center background-size-cover {% if not creation.image %}background-offwhite{% endif %}" style='{% if creation.image %}background-image: url("{{ creation.image }}");{% endif %}'>
+                                        <div class="overview-sdg flex flex-col align-end py-md-20 p-30 ml-auto">
+                                            {% for sdg in creation.sdgs %}
+                                                <span class="label sdg-{{ sdg.number }} mb-20">
+                                                    {{ sdg.id }}. <span class="display-none-xs">{{ sdg.title|capitalize }}</span>
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="content-overview-information p-md-20 p-30">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3 class="m-0">
+                                                    {{ creation.title }}
+                                                </h3>
+
+                                                <div class="overview-writer bold-text">
+                                                    <a href="/profile/{{ creation.user_id }}/{{ creation.creator_slug }}/">
+                                                        Geplaatst door: {{ creation.creator }} 
+                                                    </a>
+                                                </div>
+
+                                                <div class="overview-date small-text mb-20">
+                                                    {{ creation.created|date("l j F Y \\o\\m H:i \\u\\u\\r") }}
+                                                </div>
+
+                                                <div class="overview-intro height-md mb-0">
+                                                    {{ creation.shortDescription }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="content-overview-actions px-md-20 px-30 pb-md-20 pb-30">
+                                        <div class="row align-items-end">
+                                            <div class="col-md-8">
+                                                <a href="/creation/{{ creation.id }}/{{ creation.slug }}/" class="btn btn-primary">
+                                                    Lees verder
+                                                </a>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="overview-statistics flex flex-end flex-start-md flex-end-lg bold-text mt-md-20">
+                                                    <div class="statistic statistic-viewed">
+                                                        <i class="fa fa-eye"></i> {{ creation.view_count }}
+                                                    </div>
+
+                                                    <div class="statistic statistic-liked ml-30">
+                                                        <i class="fa fa-heart"></i> {{ creation.like_count }}
+                                                    </div>
+
+                                                    <div class="statistic statistic-commented ml-30">
+                                                        <i class="fa fa-comment"></i> {{ creation.comment_count }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %} 
+
+                            <div class="flex space-evenly align-center">
+                                <span class="arrow flex justify-center align-center">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+
+                                <div>1</div>
+                                <div>2</div>
+                                <div>...</div>
+                                <div class="bold-text">5</div>
+                                <div>...</div>
+                                <div>9</div>
+                                <div>10</div>
+
+                                <span class="arrow flex justify-center align-center">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-5">
+                        <div class="filter ml-auto p-30">
+                            <div class="flex space-between align-center mb-20">
+                                <h2>Filteren</h2>
+                                
+                                {% if filters %}
+                                    <span class="delete-filters flex align-center p-10">
+                                        <div class="bold-text pr-20">Verwijder filters</div>
+                                        <i class="fas fa-times-circle"></i>
+                                    </span>
+                                {% endif %}
+                            </div>
+
+                            <div class="px-20">
+                                {% for filter in filters %}
+                                    <div class="flex flex-row space-between pb-20">
+                                        <div>
+                                            {{ filter|capitalize }}
+                                        </div>
+
+                                        <span class="delete-filter cross transition" data-filter="{{ filter }}">
+                                            <i class="fas fa-times-circle"></i>
+                                        </span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <div>
+                                <span id="type-filter" class="type-of-solution flex space-between pb-20">
+                                    <div class="bold-text">
+                                        Soort oplossing
+                                    </div>
+
+                                    <span>
+                                        <i id="arrow-solutions" class="fas fa-chevron-down"></i>
+                                    </span>
+                                </span>
+
+                                <div class="types px-20">
+                                    <label class="checkbox-wrapper pb-20">
+                                        How-to
+
+                                        <input type="checkbox" class="checkbox-input" name="how-to" value="how-to" {% for filter in filters %}{% if filter == "how-to" %}checked{% endif %}{% endfor %}>
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    
+                                    <label class="checkbox-wrapper pb-20">
+                                        Artikelen
+
+                                        <input type="checkbox" class="checkbox-input" name="artikelen" value="artikelen" {% for filter in filters %}{% if filter == "artikelen" %}checked{% endif %}{% endfor %}>
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    
+                                    <label class="checkbox-wrapper pb-20">
+                                        Video's
+
+                                        <input type="checkbox" class="checkbox-input" name="videos" value="videos" {% for filter in filters %}{% if filter == "videos" %}checked{% endif %}{% endfor %}>
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    
+                                    <label class="checkbox-wrapper pb-20">
+                                        Podcasts
+
+                                        <input type="checkbox" class="checkbox-input" name="podcasts" value="podcasts" {% for filter in filters %}{% if filter == "podcasts" %}checked{% endif %}{% endfor %}>
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

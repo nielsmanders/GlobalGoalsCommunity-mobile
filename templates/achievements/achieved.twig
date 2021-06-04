@@ -1,0 +1,69 @@
+<div class="user-badges-achieved">
+    <div class="page-content">
+        <div class="badges-content background-offwhite py-100">
+            <div class="container">
+                <div class="content border-radius box-shadow background-white p-30">
+                    <a class="btn btn-primary btn-back" href="#">
+                        <i class="fas fa-chevron-left"></i>
+
+                        <p class="pl-20">
+                            Ik wil terug
+                        </p>
+                    </a>
+
+                    <h3 class="mt-40">
+                        Alle behaalde prestaties
+                    </h3>
+
+                    <div class="badges-container mt-20">
+                        <div class="row">
+                        {% for i in 0..11 %}
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+                                <div class="flex justify-center flex-col align-center badge-click" data-id="badge-{{ i }}">
+                                    <div class="badge red text-center">
+                                        <div class="circle">
+                                            <i class="fa fa-bolt"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        Bijgedragen aan SDG 1: Geen armoede
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="badge-overlay" id="badge-information" onclick="closeBadge()">
+                        <div class="badge-information background-offwhite">
+                            <div class="flex justify-center flex-col align-center">
+                                
+                                <i class="fas fa-times text-dark align-self-end fa-2x"></i>
+                                
+                                <div class="badge red text-center">
+                                    <div class="circle">
+                                        <i class="fa fa-bolt"></i>
+                                    </div>
+                                </div>
+                                <div class="justify-content-center">
+                                    <div class="h3 bold-text text-dark mb-5">
+                                        Bijgedragen aan SDG 1: Geen armoede
+                                    </div>
+
+                                    <div class="text-gray mb-20">
+                                        Behaald op 3 juni 2020
+                                    </div>
+
+                                    <div class="text-dark">
+                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

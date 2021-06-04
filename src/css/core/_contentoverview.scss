@@ -1,0 +1,115 @@
+.content-overview-container {
+    box-shadow: $global-box-shadow;
+    border-radius: $global-border-radius;
+    background-color: $white;
+
+    .content-overview-image {
+        height: 18rem;
+        overflow: hidden;
+        border-radius: $global-border-radius $global-border-radius 0 0;
+
+        img {
+            height: auto;
+            object-fit: fill;
+        }
+
+        &.content-overview-image-lg {
+            height: 28rem;
+
+            @include breakpoint ('bp-md') {
+                height: 20rem;
+            }
+        }
+    }
+
+    .content-overview-information {
+        h3 {
+            height: 12.4rem;
+            overflow: hidden;
+
+            @include breakpoint ('bp-md') {
+                height: 9rem
+            }
+        }
+        .overview-writer {
+            a {
+                color: $black;
+            }
+        }
+
+        .overview-date {
+            color: $gray;
+        }
+
+        .overview-intro {
+            &.height-md {
+                position: relative;
+                height: 7.1rem;
+                overflow: hidden;
+
+
+                &:after {
+                    content: "";
+                    text-align: right;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 70%;
+                    height: 2.4rem;
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+                }
+            }
+
+            &.height-lg {
+                position: relative;
+                height: 13.6rem;
+                overflow: hidden;
+
+                &:after {
+                    content: "";
+                    text-align: right;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 70%;
+                    height: 2.4rem;
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+                }
+            }
+        }
+    }
+
+    .content-overview-actions {
+        .overview-statistics {
+            .statistic {
+               display: inline-block;
+               color: $gray;
+            }
+        }
+    }
+
+    &.content-overview-inverted {
+        h3, .overview-writer, .overview-date, .overview-intro {
+            color: $white;
+
+            a {
+                color: $white;
+            }
+        }
+    
+        .overview-intro {
+            &.height-lg {
+                &:after {
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), $highlight 50%);
+                }
+            }
+        }
+
+        .overview-sdg {
+            .label {
+                background-color: $highlight;
+                border: .2rem solid $white;
+            }
+        }
+    }
+}

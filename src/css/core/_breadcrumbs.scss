@@ -1,0 +1,19 @@
+.breadcrumb {
+    list-style: none;
+    font-size: 1.8rem;
+
+    li {
+        display: inline;
+
+        &:before {
+            
+        }
+    }
+}
+  
+  /* Add a slash symbol (/) before/behind each list item */
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }

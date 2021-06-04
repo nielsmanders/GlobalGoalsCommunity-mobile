@@ -1,0 +1,244 @@
+{% include 'profile-menu.twig' %}
+
+<div class="page-content edit-profile background-offwhite">
+    <div class="container py-100">
+        <div class="content">
+            <div class="row">
+                <div class="col-md-10 offset-md-2">
+                    <div class="user-data">
+                        <form id="edit-profile-form" method="POST" enctype="multipart/form-data" action="">
+                            <input type="hidden" name="action" value="edit-user">
+                            <input type="hidden" name="id" value="{{ user.id }}">
+
+                            <div class="user-info background-white p-30">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 class="h3 mb-10"> 
+                                            {{ user.name }}  
+                                        </h1>
+                                    </div>
+                                    
+                                    <div class="col-xs-4 col-lg-4 flex justify-center align-center">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="flex align-center flex-col">
+                                                    <div class="edit-info-avatar flex align-center justify-center background-white {% if user.avatar %}background-position-center background-size-cover{% endif %}" {% if user.avatar %}style="background-image: url('{{ user.avatar }}');"{% endif %}>
+                                                        <div class="avatar">
+                                                            {% if not user.avatar %}
+                                                                <i class="fas fa-user h1 text-gray"></i>
+                                                            {% endif %}
+                                                        </div>
+
+                                                        <div class="avatar-hover">
+                                                            <i class="icon fas fa-camera h1 text-offwhite"></i>
+                                                            <input name="avatar" type="file" class="custom-file-input" accept="image/*">
+                                                        </div>
+                                                    </div> 
+                                                    
+                                                    <p class="mt-20"><b>Optimaal:</b> vierkante foto (jpg, jpeg, png)</p>
+                                                    <p class="image-output"><b>Foto geüpload: </b><span class="output"></span></span>  
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+
+                                    <div class="col-xs-8 col-lg-8">
+                                        <div class="user-info-data">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="input-wrapper mb-10">
+                                                        <label class="my-10 bold-text" for="firstname">Voornaam</label>
+                                                        <input type="text" id="firstname" name="firstname" class="input mt-5 full-width py-10 px-20" placeholder="Voeg voornaam toe" value="{{ user.firstname }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="input-wrapper mb-10">
+                                                        <label class="m-10 bold-text" for="lastName">Achternaam</label>
+                                                        <input type="text" id="lastname" name="lastname" class="input mt-5 full-width py-10 px-20" placeholder="Voeg achternaam toe" value="{{ user.lastname }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="input-wrapper mb-10">
+                                                        <label class="my-10 bold-text" for="date_of_birth">Geboortedatum</label>
+                                                        <input type="date" id="date_of_birth" name="date_of_birth" class="input mt-5 full-width py-10 px-20" placeholder="Voeg geboortedatum toe" value="{{ user.date_of_birth|date("Y-m-d") }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="input-wrapper mb-10">
+                                                        <label class="my-10 bold-text" for="phone">Telefoonnummer</label>
+                                                        <input type="text" id="phone" name="phone" class="input mt-5 full-width py-10 px-20" placeholder="Voeg telefoonnummer toe" value="{{ user.phone }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="input-wrapper mb-10">
+                                                        <label class="my-10 bold-text" for="email">E-mailadres</label>
+                                                        <input type="text" id="email" name="email" class="input mt-5 full-width py-10 px-20" placeholder="Voeg e-mailadres toe" value="{{ user.email }}" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="input-wrapper mb-10">
+                                                        <label class="my-10 bold-text" for="city">Woonplaats</label>
+                                                        <input type="text" id="city" name="city" class="input mt-5 full-width py-10 px-20" placeholder="Voeg woonplaats toe" value="{{ user.city }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="input-wrapper mb-10">
+                                                        <label class="my-10 bold-text" for="country">Land van herkomst</label>
+                                                        <input type="text" id="country" name="country" class="input mt-5 full-width py-10 px-20" placeholder="Voeg land toe" value="{{ user.country }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-wrapper mb-10">
+                                                        <label class="my-10 bold-text" for="bio">Biografie</label>
+                                                        <textarea id="bio" class="py-10 px-20" name="bio" rows="6" maxlength="300" placeholder="Typ hier iets over jezelf">{{ user.bio }}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mx-10">
+                                        <div class="col-md-10">
+                                            <h1 class="h3 mt-40 mb-20"> 
+                                                Socials 
+                                            </h1>
+
+                                            <p>
+                                                Plak je gebruikersnaam in het desbetreffende invoerveld. De socials die niet ingevuld zijn worden ook niet weergegeven op je profiel.
+                                        </div>
+
+                                    
+                                        <div class="col-xs-6 col-lg-6">
+                                            <div class="socials background-offwhite my-20 p-20">
+                                                <h2 class="h3 mb-20"> 
+                                                    Twitter
+                                                </h2>
+
+                                                <div class="input-wrapper">
+                                                    <label class="mb-10 bold-text" for="twitter">Gebruikernaam</label>
+                                                    <input type="text" id="twitter" name="twitter" class="input mt-15 full-width py-10 px-20" placeholder="Gebruikernaam" value="{{ user.twitter }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 col-lg-6">
+                                            <div class="socials background-offwhite my-20 p-20">
+                                                <h2 class="h3 mb-20"> 
+                                                    Instagram
+                                                </h2>
+
+                                                <div class="input-wrapper">
+                                                    <label class="mb-10 bold-text" for="instagram">Gebruikernaam</label>
+                                                    <input type="text" id="instragram" name="instagram" class="input mt-15  full-width py-10 px-20" placeholder="Gebruikernaam" value="{{ user.instagram }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 col-lg-6">
+                                            <div class="socials background-offwhite my-20 p-20">
+                                                <h2 class="h3 mb-20"> 
+                                                    Facebook
+                                                </h2>
+
+                                                <div class="input-wrapper">
+                                                    <label class="mb-10 bold-text" for="facebook">Gebruikernaam</label>
+                                                    <input type="text" id="facebook" name="facebook" class="input mt-15  full-width py-10 px-20" placeholder="Gebruikernaam" value="{{ user.facebook }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 col-lg-6">
+                                            <div class="socials background-offwhite my-20 p-20">
+                                                <h2 class="h3 mb-20"> 
+                                                    Linkedin
+                                                </h2>
+
+                                                <div class="input-wrapper">
+                                                    <label class="mb-10 bold-text" for="linkedin">Gebruikernaam</label>
+                                                    <input type="text" id="linkedin" name="linkedin" class="input mt-15  full-width py-10 px-20" placeholder="Gebruikernaam" value="{{ user.linkedin }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 col-lg-6">
+                                            <div class="socials background-offwhite my-20 p-20">
+                                                <h2 class="h3 mb-20"> 
+                                                    Youtube
+                                                </h2>
+
+                                                <div class="input-wrapper">
+                                                    <label class="mb-10 bold-text" for="youtube">Gebruikernaam</label>
+                                                    <input type="text" id="youtube" name="youtube" class="input mt-15  full-width py-10 px-20" placeholder="Gebruikernaam" value="{{ user.youtube }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {# <div class="col-md-6">
+                                            <div class="socials background-offwhite my-20 p-20">
+                                                <h2 class="h3 mb-20"> 
+                                                    Tiktok
+                                                </h2>
+
+                                                <div class="input-wrapper">
+                                                    <label class="mb-10 bold-text" for="email">Link naar de pagina</label>
+                                                    <input type="text" id="tiktok" name="tiktok" class="input mt-15  full-width py-10 px-20" placeholder="Link naar pagina">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="socials background-offwhite my-20 p-20">
+                                                <h2 class="h3 mb-20"> 
+                                                    Myspace
+                                                </h2>
+
+                                                <div class="input-wrapper">
+                                                    <label class="mb-10 bold-text" for="email">Link naar de pagina</label>
+                                                    <input type="text" id="myspace" name="myspace" class="input mt-15  full-width py-10 px-20" placeholder="Link naar pagina">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="socials background-offwhite my-20 p-20">
+                                                <h2 class="h3 mb-20"> 
+                                                    Flickr
+                                                </h2>
+
+                                                <div class="input-wrapper">
+                                                    <label class="mb-10 bold-text" for="email">Link naar de pagina</label>
+                                                    <input type="text" id="flickr" name="flickr" class="input mt-15  full-width py-10 px-20" placeholder="Link naar pagina">
+                                                </div>
+                                            </div>
+                                        </div> #}
+                                        
+                                        <div class="col-md-12"> 
+                                            <div class="buttons flex flex-end">
+                                                <button class="btn btn-primary" type="submit" id="submit">
+                                                    <i class="fas fa-save mr-10"></i> Wijzigingen opslaan
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

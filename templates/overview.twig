@@ -1,0 +1,151 @@
+{% include 'profile-menu.twig' %}
+
+<div class="admin">
+    <div class="page-content">
+        <div class="container px-xl-80 px-lg-20 py-md-40 py-100">
+            <div class="content">
+                <h2>
+                    Welkom {{ user_name }}!
+                </h2>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="mt-20">
+                            Hier is een overzicht van de pagina's van jouw profiel!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <a href="/my-profile/" class="col-md-6 col-lg-4">
+                        <div class="user-tile background-offwhite border-radius box-shadow transition p-md-20 p-30 mt-40">
+                            <h3>
+                                Profiel
+                            </h3>
+
+                            <div class="mt-20">
+                                Hier kun je de gegevens van jouw profiel aanpassen, zoals: 
+                                <ul>
+                                    <li>
+                                        Een profielfoto
+                                    </li>
+
+                                    <li>
+                                        Sociale meida kanalen
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <i class="overview-icon fa-8x fas fa-user text-gray"></i>
+                        </div>
+                    </a>
+
+                    <a href="/achievements/" class="col-md-6 col-lg-4">
+                        <div class="user-tile background-offwhite border-radius box-shadow transition p-md-20 p-30 mt-40">
+                            <h3>
+                                Mijn prestaties 
+                            </h3>
+
+                            <div class="mt-20">
+                                Hier kunnen je zien welke prestaties je hebt behaald.
+                                {# <ul>
+                                    <li>
+                                        Een item
+                                    </li>
+
+                                    <li>
+                                        Nog een item
+                                    </li>
+                                </ul> #}
+                            </div>
+
+                            <i class="overview-icon fa-8x fas fa-medal text-gray"></i>
+                        </div>
+                    </a>
+
+                    <a href="/saved-content/" class="col-md-6 col-lg-4">
+                        <div class="user-tile background-offwhite border-radius box-shadow transition p-md-20 p-30 mt-40">
+                            <h3>
+                                Opgeslagen content
+                            </h3>
+
+                            <div class="mt-20">
+                                Je opgeslagen content is hier terug te vinden.
+                                {# <ul>
+                                    <li>
+                                        Een item
+                                    </li>
+
+                                    <li>
+                                        Nog een item
+                                    </li>
+                                </ul> #}
+                            </div>
+
+                            <i class="overview-icon fa-8x fas fa-save text-gray"></i>
+                        </div>
+                    </a>
+
+                    <a href="/my-content/" class="col-md-6 col-lg-4">
+                        <div class="user-tile background-offwhite border-radius box-shadow transition p-md-20 p-30 mt-40">
+                            <h3>
+                                Mijn content
+                            </h3>
+
+                            <div class="mt-20">
+                                Eigen geplaatste content, kun je hier terugvinden, maar ook:
+                                <ul>
+                                    <li>
+                                        Aanpassen of verwijderen
+                                    </li>
+
+                                    <li>
+                                        Views, reacties en likes bekijken
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <i class="overview-icon fa-8x fas fa-book-reader text-gray"></i>
+                        </div>
+                    </a>
+
+                    <a href="/add-content/" class="col-md-6 col-lg-4">
+                        <div class="user-tile background-offwhite border-radius box-shadow transition p-md-20 p-30 mt-40">
+                            <h3>
+                                Content toevoegen
+                            </h3>
+
+                            <div class="mt-20">
+                                Hier kunnen content toevoegen in de vorm van een artikel, video, podcast of meeting.
+                                {# <ul>
+                                    <li>
+                                        Een item
+                                    </li>
+
+                                    <li>
+                                        Nog een item
+                                    </li>
+                                </ul> #}
+                            </div>
+
+                            <i class="overview-icon fa-8x fas fa-plus-square text-gray"></i>
+                        </div>
+                    </a>
+                    <a href="/logout/" class="col-md-6 col-lg-4">
+                        <div class="user-tile background-offwhite border-radius box-shadow transition p-md-20 p-30 mt-40">
+                            <h3>
+                                Uitloggen
+                            </h3>
+
+                            <div class="mt-20">
+                                Klik hier om uit te loggen. 
+                            </div>
+
+                            <i class="overview-icon log-out-icon fa-8x fas fa-walking text-gray"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

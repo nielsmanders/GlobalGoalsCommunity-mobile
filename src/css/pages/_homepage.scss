@@ -1,0 +1,310 @@
+.homepage {
+    position: relative;
+
+    .header-home {
+        min-height: calc(100vh - 8rem);
+
+        .scroll {
+            display: block;
+            z-index: 9;
+            position: absolute;
+            bottom: 7rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2.6rem;
+            height: 4.3rem;
+            border-radius: 99px;
+            border: .15rem solid $highlight;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 2.5rem;
+                left: 50%;
+                transform: translate(-50%, 0);
+                opacity: 1;
+                width: .8rem;
+                height: .8rem;
+                background-color: $highlight;
+                border-radius: 50%;
+                -webkit-animation: scroll 2s infinite;
+                animation: scroll 2s infinite;
+            }
+
+            @include breakpoint('bp-sm') {
+                display: none;
+            }
+
+            @include breakpoint('bp-md') {
+                bottom: 2rem;
+            }
+        }
+    }
+
+    @keyframes scroll {
+        0% {
+        opacity: 1;
+        transform: translate(-50%, 0)
+        }
+        30% {
+        opacity: 1;
+        transform: translate(-50%, 0)
+        }
+        100% {
+        opacity: 0;
+        transform: translate(-50%, 1.5rem)
+        }
+    }
+
+    .circles-header-home-left {
+        left: -13rem;
+        top: 25rem;
+
+        @include breakpoint ('bp-lg') {
+            left: -5rem;
+            top: 20rem;
+        }
+    
+        @include breakpoint ('bp-md') {
+            top: 30rem;
+        }
+    }
+
+    .circles-header-home-right {
+        right: -13rem;
+        bottom: 10rem;
+
+        @include breakpoint ('bp-lg') {
+            right: -5rem;
+            bottom: 15rem;
+        }
+    
+        @include breakpoint ('bp-md') {
+            bottom: 25rem;
+        }
+    }
+
+    .home-content {
+        position: relative;
+        overflow: hidden;
+        
+        .circles-search-home-left {
+            left: -10rem;
+            top: 8rem;
+
+            @include breakpoint ('bp-lg') {
+                left: -2rem;
+                top: 20rem;
+            }
+        
+            @include breakpoint ('bp-md') {
+                left: 3rem;
+                top: 25rem;
+            }
+
+            @include breakpoint ('bp-sm') {
+                display: none;
+            }
+        }
+
+        .circles-featured-home-right {
+            right: -5rem;
+            bottom: 7rem;
+
+            @include breakpoint ('bp-md') {
+                right: -2rem;   
+            }
+        }
+
+        .circles-populair-home-left {
+            top: 57rem;
+            left: 15rem;
+
+            @include breakpoint ('bp-lg') {
+                top: 80rem;
+                left: 1rem;
+            }
+        }
+
+        .circles-populair-home-right {
+            bottom: 11rem;
+            right: 12rem;
+
+            @include breakpoint ('bp-lg') {
+                right: 1rem;
+            }
+        }
+        
+        .swiper-pagination {
+            bottom: 16rem;
+
+            @include breakpoint ('bp-md') {
+                bottom: 20rem;
+            }
+
+            @include breakpoint ('bp-sm') {
+                bottom: 26rem;
+            }
+
+            @include breakpoint ('bp-xs') {
+                bottom: 25rem;
+            }
+            
+            .swiper-pagination-bullet-active {
+                background-color: $near-black;
+            }
+        }
+
+        .circles-recent-home-left {
+            top: 94rem;
+            left: -10rem;
+
+            @include breakpoint ('bp-lg') {
+                top: 70rem;
+            }
+
+            @include breakpoint ('bp-md') {
+                left: -5rem;
+            }
+        }
+
+        .circles-recent-home-right {
+            top: 17rem;
+            right: 11rem;
+
+            @include breakpoint ('bp-lg') {
+                top: 25rem;
+                right: -11rem;
+            }
+
+            @include breakpoint ('bp-md') {
+                top: 30rem;
+                right: 1rem;
+            }
+        }
+
+        .about-sdgs {
+            flex-direction: row;
+    
+            @include breakpoint ('bp-md') {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .poll-container {
+            border-radius: $global-border-radius;
+    
+            .answer-container {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                user-select: none;
+                border-radius: $global-border-radius;
+    
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+    
+                    &:checked {
+                        ~ .checkmark {
+                            background-color: $highlight;
+    
+                            &:after {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+    
+                .checkmark {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 1rem;
+                    background-color: transparent;
+                    border-radius: $global-border-radius 0 0 $global-border-radius;
+                }
+
+                &:hover {
+                    input ~ .checkmark {
+                        background-color: #ccc;
+                    }
+                }
+
+                &:checked {
+                    input ~ .checkmark {
+                        background-color: $highlight;
+                    }
+                }
+
+                @include breakpoint ('bp-lg') {
+                    &:hover, &:active {
+                        input ~ .checkmark {
+                            background-color: $highlight;
+                        }
+                    }
+                }
+            } 
+        }
+    
+        .swiper-container {
+            height: 100%;
+            width: 100%;
+    
+            .swiper-pagination {
+                bottom: 12rem;
+                
+                .swiper-pagination-bullet-active {
+                    background-color: $near-black;
+                }
+            }
+        }
+
+        .swiper-button-next {
+            right: -4rem;
+    
+            @include breakpoint ('bp-lg') {
+                right: -2rem;
+            }
+    
+            @include breakpoint ('bp-md') {
+                right: -3rem;
+            }
+    
+            @include breakpoint ('bp-sm') {
+                right: -.75rem;
+            }
+        }
+
+        .swiper-button-prev {
+            left: -4rem;
+    
+            @include breakpoint ('bp-lg') {
+                left: -2rem;
+            }
+    
+            @include breakpoint ('bp-md') {
+                left: -3rem;
+            }
+    
+            @include breakpoint ('bp-sm') {
+                left: -.75rem;
+            }
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: $near-black;
+
+            &:after {
+                @include breakpoint ('bp-sm') {
+                    display: none;
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+}

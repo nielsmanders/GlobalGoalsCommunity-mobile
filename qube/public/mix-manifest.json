@@ -1,0 +1,11 @@
+{
+    "/js/site.js": "/js/site.js",
+    "/css/style.css": "/css/style.css",
+    "/js/templates.js": "/js/templates.js",
+    "/js/blogs.js": "/js/blogs.js",
+    "/js/pages.js": "/js/pages.js",
+    "/js/users.js": "/js/users.js",
+    "/js/reports.js": "/js/reports.js",
+    "/js/login.js": "/js/login.js",
+    "/js/fields.js": "/js/fields.js"
+}

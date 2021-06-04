@@ -1,0 +1,57 @@
+.page-sidebar {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: $highlight;
+
+    .profile-sidebar {
+        max-width: 22rem;
+        
+        .menu-items {
+            list-style-type: none;
+            margin: 0;
+            padding-left: 0;
+         
+            .menu-item-link {
+                color: $white;
+                display: flex;
+                align-items: center;
+                border-radius: 4rem 0 0 4rem;
+                position: relative;
+    
+                &:hover {
+                    color: $highlight !important;
+                    background-color: $offwhite;
+                   
+                    &:after {
+                        background-color: $offwhite;
+                    }
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: -3rem;
+                    top: 0;
+                    bottom: 0;
+                    width: 3rem;
+                    transition: $global-transition;
+                }
+
+                .menu-item-text {
+
+                    @include breakpoint ("bp-lg") {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        hr {
+            border-color: $highlight-dark;
+        }
+    }
+}
+
+    

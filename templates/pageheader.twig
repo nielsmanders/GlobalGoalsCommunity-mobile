@@ -1,0 +1,59 @@
+<div class="page-header flex align-center py-sm-0 py-md-40 py-50">
+    
+    <img class="circles circles-header-left" src="/images/circles/circles.png">
+    <img class="circles circles-header-right rotate-190" src="/images/circles/circles.png">
+    
+    <div class="container py-sm-40">
+        <div class="content">
+
+            {% if pageheader %}
+                {% if p == 'searchpage' %}
+                    <div class="row">
+                        <div class="col-lg-6 col-md-10 flex justify-center flex-col">
+                            <h1>
+                                {{ pageheader.title }}
+                            </h1>
+                            <p>
+                                {{ pageheader.description }}
+                            </p>
+                        </div>
+
+                        <div class="col-lg-5 offset-lg-1 col-md-7 col-sm-8 col-8 flex flex-end mt-md-20">
+                            <img class="full-width" src="/images/illustration-search.png">
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row justify-center text-center">
+                        <div class="col-md-8">
+                            <h1 class="text-center mb-md-20 mb-40">
+                                {% if sdg %}
+                                    {{ sdg.id }}. {{ sdg.title }}
+                                {% else %}
+                                    {{ pageheader.title }}
+                                {% endif %}
+                            </h1>
+                            <p class="text-center">
+                                {% if sdg %}
+                                    {{ sdg.description }}
+                                {% else %}
+                                    {{ pageheader.description }}
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% elseif p == 'creation' %}
+                <div class="row justify-center text-center">
+                        <div class="col-md-8">
+                            <h1 class="text-center mb-xl-40 mb-lg-20">
+                                {{ creation.title }}
+                            </h1>
+                            <p class="text-center">
+                                {{ creation.shortDescription }}
+                            </p>
+                        </div>
+                    </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

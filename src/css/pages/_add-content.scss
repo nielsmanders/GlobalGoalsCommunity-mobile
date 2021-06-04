@@ -1,0 +1,55 @@
+.add-content {
+
+    .content-type {
+        background-color: $white;
+        border-radius: $global-border-radius;
+        height: 25rem;
+        color: $highlight;
+        box-shadow: $global-box-shadow;
+
+        .icon-type {
+            height: 8rem;
+            width: auto;
+        }
+
+        &:hover {
+            background-color: $highlight;
+            color: $white;
+        }
+
+        &.active {
+            color: $white;
+            background-color: $highlight;
+        }
+    }
+
+    .input-title {
+        width: 75%;
+    }
+
+    .shortDescription-wrapper {
+        position: relative;
+
+        .input-short-description {
+            resize: none;
+        }
+
+        .shortDescription-count-wrapper {
+            position: absolute;
+            right: 1rem;
+            bottom: 1.5rem;
+
+            @include breakpoint('bp-sm') {
+                position: relative;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+
+    .add-textfield {
+        border-color: transparent;
+        font-size: inherit;
+        font-family: inherit;   
+    }
+}

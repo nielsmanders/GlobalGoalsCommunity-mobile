@@ -1,0 +1,159 @@
+.btn {
+    border: none;
+    color: $white;
+    padding: 1.2rem 2rem;
+    font-size: inherit;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: $global-box-shadow;
+    border-radius: $global-border-radius;
+    transition: $global-transition;
+
+    &.btn-sm {
+        padding: .9rem 2.2rem;
+    }
+
+    &.btn-xs {
+        padding: .4rem 1.5rem;
+    }
+}
+
+.btn-primary {
+    background-color: $highlight;
+    border: .2rem solid $highlight;
+
+    &:hover {
+        background-color: darken($highlight, 5%);
+        border-color: darken($highlight, 5%);
+    }
+}
+
+.btn-secondary {
+    padding: .97rem 2.2rem;
+    color: $highlight;
+    background-color: transparent;
+    border: .4rem solid $highlight;
+    box-shadow: none;
+
+    &:hover {
+        background-color: darken($highlight, 5%);
+        border-color: darken($highlight, 5%);
+        color: $white;
+    }
+}
+
+.btn-white {
+    color: $highlight;
+    background-color: $offwhite;
+
+    &:hover {
+        background-color: $white;
+        color: darken($highlight, 5%);
+    }
+}
+
+.btn-transparent {
+    color: $near-black;
+    background-color: transparent;
+    box-shadow: none;
+    text-transform: none;
+}
+
+.btn-back {
+    background-color: $offwhite;
+    color: $near-black;
+    padding: 1rem 2rem;
+    border: none;
+
+    &:hover {
+        background-color: $white;
+        color: darken($near-black, 5%);
+    }
+}
+
+.btn-usps {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    color: $white;
+}
+
+.btn-orange {
+    background-color: $orange;
+
+    &:hover {
+        background-color: darken($orange, 5%)
+    }
+}
+
+
+.add-content-button {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    overflow: hidden;
+    border-radius: $global-border-radius 0 0 $global-border-radius;
+
+    @media (min-width: 1200px) { 
+        animation: teasing_button 4s infinite;
+        animation-timing-function: ease-in-out;
+    }
+
+    span {
+        width: 0;
+        opacity: 0;
+        height: 2.7rem;
+        overflow: hidden;
+        font-size: 2rem;
+
+        @include breakpoint ('bp-lg') {
+            width: 100%;
+            opacity: 1;
+        }
+
+        @include breakpoint ('bp-md') {
+            height: 2.2rem;
+            font-size: 1.7rem;
+        }
+
+        @include breakpoint ('bp-sm') {
+            height: 2rem;
+            font-size: 1.4rem;
+        }
+    }
+
+    &:hover {
+        animation-play-state: paused;
+        
+        span {
+            width: 100%;
+            animation: fadein 1s linear forwards;
+            opacity: 1;
+        }
+    }
+
+    svg {
+        font-size: 4rem;
+
+        @include breakpoint ('bp-lg') {
+            font-size: 2rem;
+        }
+    }
+}
+
+@keyframes teasing_button {
+    0% {right: 0rem;}
+    20% {right: -1rem;}
+    50%,100% {right: 0rem;}
+}
+
+@keyframes fadein {
+    0% {opacity: 0;}
+    80% {opacity: .7;}
+    100% {opacity: 1;}
+}

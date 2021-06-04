@@ -1,0 +1,76 @@
+{# {% include 'profile-menu.twig' %} #}
+
+<div class="my-content">
+    <div class="page-content">
+        <div class="container px-xl-80 px-lg-20 py-md-20 py-100">
+            <div class="content">
+                {% include 'breadcrumbs.twig' %}                
+
+                <h2 class="mt-40">
+                    Mijn content
+                </h2>
+
+                <div class="row mt-20">
+                    <div class="col-md-8">
+                        Alle content die door jou gemaakt is. Op deze plek zou je je content kunnen verwijderen.
+                    </div>
+                </div>
+
+                <div class="reported-content-container mt-20">
+                    <div class="row no-gutters flex-row-reverse">
+                        <div class="col-2 col-lg-1">
+                            <div class="full-height py-md-20 py-40 background-highlight border-radius box-shadow flex flex-col space-evenly align-center">
+                                <span class="text-highlight-dark">
+                                    <i class="fas fa-trash fa-2x"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-10 col-lg-11">
+                             <div class="content-overview-container">
+                                <div class="content-overview-information p-md-20 p-30">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="m-0">
+                                                {{ recent_creation.title }}
+                                            </h3>
+                                            <div class="overview-date small-text mb-20">
+                                                {{ recent_creation.created|date("l j F Y \\o\\m H:i \\u\\u\\r") }}
+                                            </div>
+                                            <div class="overview-intro height-md mb-0">
+                                                {{ recent_creation.shortDescription }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content-overview-actions px-md-20 px-30 pb-md-20 pb-30">
+                                    <div class="row align-items-end">
+                                        <div class="col-md-8">
+                                            <a href="/creation/{{ recent_creation.id }}/{{ recent_creation.slug }}/" class="btn btn-primary">
+                                                Lees verder
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="overview-statistics flex flex-end flex-start-md flex-end-lg bold-text mt-md-20">
+                                                <div class="statistic statistic-viewed">
+                                                    <i class="fa fa-eye"></i> {{ recent_creation.view_count }}
+                                                </div>
+                                                <div class="statistic statistic-liked ml-30">
+                                                    <i class="fa fa-heart"></i> {{ recent_creation.like_count }}
+                                                </div>
+                                                <div class="statistic statistic-commented ml-30">
+                                                    <i class="fa fa-comment"></i> {{ recent_creation.comment_count }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

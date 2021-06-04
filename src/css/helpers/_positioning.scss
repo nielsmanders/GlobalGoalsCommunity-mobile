@@ -1,0 +1,361 @@
+$spacer:                     1rem;
+$spacer-x:                   $spacer;
+$spacer-y:                   $spacer;
+$spacers: (
+  0: (
+    x:   0,
+    y:   0
+  ),
+  5: (
+    x:   ($spacer-x * .5),
+    y:   ($spacer-y * .5)
+  ),
+  10: (
+    x:   $spacer-x,
+    y:   $spacer-y
+  ),
+  15: (
+    x:   ($spacer-x * 1.5),
+    y:   ($spacer-y * 1.5)
+  ),
+  20: (
+    x:   ($spacer-x * 2),
+    y:   ($spacer-y * 2)
+  ),
+  30: (
+    x:   ($spacer-x * 3),
+    y:   ($spacer-y * 3)
+  ),
+  40: (
+    x:   ($spacer-x * 4),
+    y:   ($spacer-y * 4)
+  ),
+  50: (
+    x:   ($spacer-x * 5),
+    y:   ($spacer-y * 5)
+  ),
+  60: (
+    x:   ($spacer-x * 6),
+    y:   ($spacer-y * 6)
+  ),
+  70: (
+    x:   ($spacer-x * 7),
+    y:   ($spacer-y * 7)
+  ),
+  80: (
+    x:   ($spacer-x * 8),
+    y:   ($spacer-y * 8)
+  ),
+  90: (
+    x:   ($spacer-x * 9),
+    y:   ($spacer-y * 9)
+  ),
+  100: (
+    x:   ($spacer-x * 10),
+    y:   ($spacer-y * 10)
+  ),
+  200: (
+    x:   ($spacer-x * 20),
+    y:   ($spacer-y * 20)
+  ),
+);
+
+@mixin spacing() {
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $lengths in $spacers {
+        $length-x:   map-get($lengths, x);
+        $length-y:   map-get($lengths, y);
+
+        .#{$abbrev}-#{$size}  { #{$prop}: $length-y $length-x !important; } // a = All sides
+        .#{$abbrev}t-#{$size} { #{$prop}-top:       $length-y !important; }
+        .#{$abbrev}r-#{$size} { #{$prop}-right:     $length-x !important; }
+        .#{$abbrev}b-#{$size} { #{$prop}-bottom:    $length-y !important; }
+        .#{$abbrev}l-#{$size} { #{$prop}-left:      $length-x !important; }
+        .#{$abbrev}x-#{$size} { #{$prop}-left:      $length-x !important; #{$prop}-right:   $length-x !important;}
+        .#{$abbrev}y-#{$size} { #{$prop}-top:       $length-y !important; #{$prop}-bottom:  $length-y !important;}
+      }
+    }
+}
+
+@include spacing;
+
+// Responsive spacing
+
+$res-spacers: (
+  0: (
+    x:   0,
+    y:   0
+  ),
+  5: (
+    x:   ($spacer-x * .5),
+    y:   ($spacer-y * .5)
+  ),
+  10: (
+    x:   ($spacer-x * 1),
+    y:   ($spacer-y * 1)
+  ),
+  20: (
+    x:   ($spacer-x * 2),
+    y:   ($spacer-y * 2)
+  ),
+  40: (
+    x:   ($spacer-x * 4),
+    y:   ($spacer-y * 4)
+  ),
+  80: (
+    x:   ($spacer-x * 8),
+    y:   ($spacer-y * 8)
+  )
+);
+
+$breakpoints-spacing: (
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl',
+);
+
+@mixin res-spacing() {
+    @each $prop, $abbrev in (margin: m, padding: p) {
+        @each $bp in $breakpoints-spacing {
+            @each $size, $lengths in $res-spacers {
+                $length-x:   map-get($lengths, x);
+                $length-y:   map-get($lengths, y);
+
+                @include breakpoint("bp-#{$bp}") {
+                    .#{$abbrev}-#{$bp}-#{$size}  { #{$prop}: $length-y $length-x !important; } // a = All sides
+                    .#{$abbrev}t-#{$bp}-#{$size} { #{$prop}-top:       $length-y !important; }
+                    .#{$abbrev}r-#{$bp}-#{$size} { #{$prop}-right:     $length-x !important; }
+                    .#{$abbrev}b-#{$bp}-#{$size} { #{$prop}-bottom:    $length-y !important; }
+                    .#{$abbrev}l-#{$bp}-#{$size} { #{$prop}-left:      $length-x !important; }
+                    .#{$abbrev}x-#{$bp}-#{$size} { #{$prop}-left:      $length-x !important; #{$prop}-right:   $length-x !important;}
+                    .#{$abbrev}y-#{$bp}-#{$size} { #{$prop}-top:       $length-y !important; #{$prop}-bottom:  $length-y !important;}
+                }
+            }
+        }
+    }
+}
+
+@include res-spacing;
+
+@include breakpoint ('bp-xl') {
+  .ml-auto {
+      margin-left: auto !important;
+  }
+}
+
+@include breakpoint ('bp-md') {
+    .ml-auto {
+        margin-left: 0 !important;
+    }
+}
+
+// Positioning div's
+.margin-auto {
+    margin: 0 auto;
+}
+
+// Positioning text
+.text-center {
+    text-align: center;
+}
+
+@include breakpoint('bp-md') {
+    .text-center-md {
+        text-align: center;
+    }
+}
+
+@include breakpoint('bp-lg') {
+    .text-center-lg {
+        text-align: center;;
+    }
+}
+
+@include breakpoint('bp-sm') {
+    .text-left-sm {
+        text-align: left;
+    }
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Flex
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+@include breakpoint('bp-sm') {
+    .flex-col-sm {
+        flex-direction: column;
+    }
+}
+
+@include breakpoint('bp-md') {
+    .flex-col-md {
+        flex-direction: column;
+    }
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.flex-start {
+    justify-content: start;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+@include breakpoint ('bp-xl') {
+    .flex-end-xl {
+        justify-content: flex-end;
+    }
+}
+
+@include breakpoint ('bp-lg') {
+    .flex-end-lg {
+        justify-content: flex-end;
+    }
+
+    .flex-start-lg {
+        justify-content: start;
+    }
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+@include breakpoint ('bp-md') {
+    .flex-end-md {
+      justify-content: flex-end;
+    }
+
+    .flex-start-md {
+        justify-content: start;
+    }
+}
+
+@include breakpoint ('bp-xs') {
+    .flex-end-xs {
+      justify-content: flex-end;
+    }
+
+    .flex-start-xs {
+        justify-content: start;
+    }
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+@include breakpoint ('bp-md') {
+    .align-start-md {
+        align-items: flex-start;
+  }
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+// Images
+.background-position-center {
+    background-position: center;
+}
+
+.background-size-cover {
+    background-size: cover;
+}
+
+// Widths
+.full-width {
+    width: 100%;
+}
+
+// Height
+.full-height {
+    height: 100%;
+}
+
+// Rotate 
+.rotate-30 {
+    transform: rotate(30deg);
+}
+
+.rotate-60 {
+    transform: rotate(60deg);
+}
+
+.rotate-70 {
+    transform: rotate(70deg);
+}
+
+.rotate-190 {
+    transform: rotate(190deg);
+}
+
+.rotate-80 {
+    transform: rotate(280deg);
+}
+
+// Displays
+.display-none {
+    display: none;
+}
+@include breakpoint ('bp-lg') {
+    .display-none-lg {
+        display: none;
+    }
+}
+
+@include breakpoint ('bp-md') {
+    .display-none-md {
+        display: none;
+    }
+}
+
+@include breakpoint ('bp-xs') {
+    .display-none-xs {
+        display: none;
+    }
+}

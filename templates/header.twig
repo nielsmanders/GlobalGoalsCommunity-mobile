@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{{ SITE_TITLE }}</title>
+
+    <base href="{{ SITE_URL }}" />
+
+    {# Favicon #}
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#00a66b">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    {# Fonts #}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Open+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    {# Font Awesome #}
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
+
+    {# CSS #}
+    <link href="/css/style.min.css?v={{ CSS_VERSION }}" rel="stylesheet">
+
+    {# Swiper JS #}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+</head>
+
+<body class="{{ body_class }}">
+
+    <header class="background-white px-sm-20">
+        <div class="container">
+            <div id="menu" class="content">
+                <div class="logo">
+                    <a href="/"><img src="/images/Logo_GGC.png" alt="{{ SITE_TITLE }}"></a>
+                </div>
+
+                <div class="menu-items menu-desktop text-center">
+                    <a href="/" class="{% if p == "home" %}active{% endif %} bold-text">Home</a>
+                    <a href="/sdgs/" class="{% if p == "sdgs" %}active{% endif %} bold-text">SDG's</a>
+                    <a href="/scoreboard/" class="{% if p == "scoreboard" %}active{% endif %} bold-text">Scoreboard</a>
+                    <a href="/search/" class="{% if p == "search" %}active{% endif %} bold-text">Zoeken</a>
+                </div>
+
+                <div class="menu-options menu-desktop flex flex-end align-center">
+                    <div class="lang mb-xs-20">
+                        {# Choose language doesn't work yet #}
+                        
+                        <span class="flex align-center">
+                            <img src="/images/lang/nl.png">
+                            <i class="fas fa-angle-down ml-15"></i>
+                        </span>
+
+                        <div class="lang-options">
+                            {# Insert languages here if needed #}
+                        </div>
+                    </div>
+
+                    {% if user_id %}
+                        <div class="user-menu ml-50 ml-xs-0 mb-xs-20">
+                            <div id="toggle-user-menu" class="flex align-center">
+                                <div class="user-menu-avatar mr-10 box-shadow flex align-center justify-center background-white background-position-center background-size-cover" {% if user_avatar %}style="background-image: url('{{ user_avatar }}');"{% endif %}>
+                                    {% if not user_avatar %}
+                                        <i class="fas fa-user text-gray"></i>
+                                    {% endif %}
+                                </div>
+                                {{ user_name }}
+                                <i class="fas fa-angle-down ml-10"></i>
+                            </div>
+
+                            <div class="user-menu-options box-shadow border-radius background-offwhite">
+                                <div class="p-20 text-right flex flex-col justify-end">
+                                    <a class="mb-5" href="/overview/">Mijn overzicht</a>
+                                    <a class="mb-5" href="/profile/{{ user_id }}/{{ user_slug }}/">Mijn profiel</a>
+                                    <a class="mb-5" href="/my-content/">Mijn content</a>
+                                    <a class="mb-5" href="/achievements/">Mijn prestaties</a>
+                                    <a class="mb-5" href="/add-content/">Content toevoegen</a>
+                                    <a class="mb-5" href="/saved-content/">Opgeslagen content</a>
+                                    <a href="/logout/">Uitloggen</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href="/register/" class="btn-register bold-text ml-50 ml-xs-0 mb-xs-20">Registreren</a>
+                        <a href="/login/" class="btn btn-secondary ml-30 ml-xs-0">Inloggen</a>
+                    {% endif %}
+                </div>
+
+                <span id="toggle" class="toggle">
+                    <i class="menu-icon align-self-center fas fa-bars active fa-2x"></i>
+                </span>
+            </div>
+        </div>
+
+        <div id="menu-mobile" class="menu-mobile closed transition background-white text-center-lg">
+            <div class="container">
+                <div class="menu-items flex flex-col space-between align-center justify-center p-sm-20 p-md-60 p-60">
+                    <a href="/" class="{% if p == "home" %}active{% endif %} bold-text h3 mb-sm-20 mb-60">Home</a>
+                    <a href="/sdgs/" class="{% if p == "sdgs" %}active{% endif %} bold-text mb-sm-20 h3 mb-60">SDG's</a>
+                    <a href="/scoreboard/" class="{% if p == "scoreboard" %}active{% endif %} bold-text h3 mb-sm-20 mb-60">Scoreboard</a>
+                    <a href="/search/" class="{% if p == "search" %}active{% endif %} bold-text mb-sm-20 h3 mb-60">Zoeken</a>
+
+                    <div class="lang mb-sm-40 mb-60">
+                        {# Choose language doesn't work yet #}
+                        
+                        <span class="flex align-center">
+                            <img src="/images/lang/nl.png">
+                            <i class="fas fa-angle-down ml-15"></i>
+                        </span>
+
+                        <div class="lang-options">
+                            {# Insert languages here if needed #}
+                        </div>
+                    </div>
+
+                    {% if user_id %}
+                        <div class="user-menu flex flex-col">
+                            <a class="mb-10" href="/overview/">Mijn overzicht</a>
+                            <a class="mb-10" href="/my-profile/">Mijn profiel</a>
+                            <a href="/logout/">Uitloggen</a>
+                        </div>
+                    {% else %}
+                        <div class="flex flex-col-sm align-center">
+                            <a href="/register/" class="btn-register bold-text mr-sm-0 mr-20 mb-sm-20 mb-0">Registreren</a>
+                            <a href="/login/" class="btn btn-secondary">Inloggen</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <a class="btn btn-orange add-content-button mb-xs-20 mb-40 px-20" href="/add-content/">
+        <i class="fas fa-plus mr-20"></i> 
+
+        <span class="transition">
+            Creatie toevoegen
+        </span>
+    </a>

@@ -1,0 +1,157 @@
+{% include 'pageheader.twig' %}
+
+<div class="scoreboard page-content py-md-40 py-100">    
+    <div class="content-information py-30">
+        
+        <img class="circles circles-content-left rotate-190" src="/images/circles/circles.png">
+
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="background-offwhite border-radius box-shadow p-md-20 p-30 mb-40">
+                            <h3>
+                                Meest gevolgde personen
+                            </h3>
+
+                            <div class="flex space-between flex-col-md align-end align-start-md mt-40">
+                                <a href="#" class="most-followed-user">
+                                    <div class="most-followed-user-image user-one box-shadow background-position-center background-size-cover" style='background-image: url("images/profile/15.jpg");'></div>
+                                </a>
+
+                                <a href="#" class="most-followed-user mt-md-20">
+                                    <div class="most-followed-user-image user-two box-shadow background-position-center background-size-cover" style='background-image: url("images/profile/15.jpg");'></div>
+                                </a>
+
+                                <a href="#" class="most-followed-user mt-md-20">
+                                    <div class="most-followed-user-image user-three box-shadow background-position-center background-size-cover" style='background-image: url("images/profile/15.jpg");'></div>
+                                </a>
+
+                                {% for y in 0..2 %}
+                                <a href="#" class="most-followed-user mt-md-20">
+                                    <div class="most-followed-user-image user-four box-shadow background-position-center background-size-cover" style='background-image: url("images/profile/15.jpg");'></div>
+                                </a>
+                                {% endfor %}
+                            </div>
+
+                            <div>
+                                <a href="/most-followed-users/" class="flex flex-end flex-start-md flex-end-lg bold-text mt-20">
+                                    Bekijk meer meest gevolgde personen >>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="background-offwhite border-radius box-shadow p-md-20 p-30">
+                            <h3>
+                                Meest gelikete posts
+                            </h3>
+
+                            {% for i in 1..5 %}
+                            <div class="background-white border-radius box-shadow p-md-20 p-30 mt-20">
+                                <div class="row align-items-center flex-column-reverse flex-lg-row">
+                                    <div class="col-lg-10">
+                                        <h4 class="h3">
+                                            <a href="#">
+                                                Eco Asfalt
+                                            </a>
+                                        </h4>
+
+                                        <a href="#" class="">
+                                            Geplaatst door: John doe
+                                        </a>
+
+                                        <div class="overview-statistics flex flex-start bold-text mt-10">
+                                            <div class="statistic statistic-viewed">
+                                                <i class="fa fa-eye"></i> {{ featured_creation.view_count }}
+                                            </div>
+
+                                            <div class="statistic statistic-liked ml-30">
+                                                <i class="fa fa-heart"></i> {{ featured_creation.like_count }}
+                                            </div>
+
+                                            <div class="statistic statistic-commented ml-30">
+                                                <i class="fa fa-comment"></i> {{ featured_creation.comment_count }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-2">
+                                        <div class="background-highlight box-shadow scoreboard-circle flex align-center justify-center mb-md-20">
+                                            <div class="h3">
+                                                {{ i }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <div>
+                                <a href="/most-liked-posts/" class="flex flex-end flex-start-md flex-end-lg bold-text mt-20">
+                                    Bekijk meer meest gelikete posts >>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="background-offwhite border-radius box-shadow p-md-20 p-30 mt-lg-40">
+                            <h3>
+                                Meest opgeslagen posts
+                            </h3>
+
+                            {% for i in 1..5 %}
+                            <div class="background-white border-radius box-shadow p-md-20 p-30 mt-20">
+                                <div class="row align-items-center flex-column-reverse flex-lg-row">
+                                    <div class="col-lg-10">
+                                        <h4 class="h3">
+                                            <a href="#">
+                                                Douchecabine
+                                            </a>
+                                        </h4>
+
+                                        <a href="#" class="">
+                                            Geplaatst door: John doe
+                                        </a>
+
+                                        <div class="overview-statistics flex flex-start bold-text mt-10">
+                                            <div class="statistic statistic-viewed">
+                                                <i class="fa fa-eye"></i> {{ featured_creation.view_count }}
+                                            </div>
+
+                                            <div class="statistic statistic-liked ml-30">
+                                                <i class="fa fa-heart"></i> {{ featured_creation.like_count }}
+                                            </div>
+
+                                            <div class="statistic statistic-commented ml-30">
+                                                <i class="fa fa-comment"></i> {{ featured_creation.comment_count }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-2">
+                                        <div class="background-highlight box-shadow scoreboard-circle flex align-center justify-center mb-md-20">
+                                            <div class="h3">
+                                                {{ i }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <div>
+                                <a href="/most-saved-posts/" class="flex flex-end flex-start-md flex-end-lg bold-text mt-20">
+                                    Bekijk meer meest opgeslagen posts >>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

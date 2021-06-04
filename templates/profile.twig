@@ -1,0 +1,386 @@
+{# {{ dump(user) }} #}
+
+<div class="profile">
+    
+    <div class="user-profile-image-container flex align-center justify-center">
+        <div class="user-profile-image-large background-size-cover background-position-center margin-auto flex align-center justify-center background-white" {% if user.avatar %}style="background-image: url('{{ user.avatar }}');"{% endif %}>
+            {% if not user.avatar %}
+                <i class="fas fa-user fa-2x h1 text-gray"></i>
+            {% endif %}
+        </div>
+
+        <div class="exit-image flex align-center transition py-xs-5 px-xs-10 py-10 px-20">
+            <p class="pr-xs-5 pr-20">Sluit foto</p>
+            <i class="fas fa-times exit-image-icon"></i>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="content">
+                <div class="user-header py-md-40 py-100">
+                    <div class="row align-items-center flex-column-reverse flex-lg-row">
+                        <div class="col-lg-8">
+                            <h1 class="m-0 mt-md-40">
+                                {{ user.name }}
+                            </h1>
+
+                            {% if user_id %}
+                                {% if user.city or user.country %}
+                                    <div class="user-location bold-text mb-20">
+                                        <i class="fa fa-map-marker-alt"></i>
+                                        {% if user.city %}{{ user.city }},{% endif %} 
+                                        {% if user.country %}{{ user.country }}{% endif %}
+                                    </div>
+                                {% endif %}  
+                            {% else %}  
+                            <div class="mt-20"></div>
+                            {% endif %}
+
+                            {% if user.bio %}
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <div class="user-bio mb-20">
+                                            {{ user.bio|slice(0, 300) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <div class="user-follow {% if not user.city or not user.country or not user.bio %}mt-20{% endif %}">
+                                <div class="row align-items-center">
+                                    {% if user_id and user_id != user.id %}
+                                        <div class="col-md-4">
+                                            <span class="btn {% if user.followed %}followed btn-orange{% else %}btn-primary{% endif %} follow-user" data-user-id="{{ user.id }}" data-user-name="{{ user.firstname|capitalize }}">
+                                                <i class="fas {% if user.followed %}fa-user-check{% else %}fa-user-plus{% endif %} mr-10"></i> {% if user.followed %}Ontvolg{% else %}Volg{% endif %} {{ user.firstname|capitalize }}
+                                            <span>
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="col-md-8">
+                                    {% if user_id %}
+                                        <div class="row mt-md-20">
+                                            {% if user.twitter %}
+                                                <div class="col-2">
+                                                    <a href="https://twitter.com/{{ user.twitter }}/" class="user-social-link" target="_blank">
+                                                        <i class="fab fa-twitter fa-2x"></i>
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+
+                                            {% if user.instagram %}
+                                                <div class="col-2">
+                                                    <a href="https://www.instagram.com/{{ user.instagram }}/" class="user-social-link" target="_blank">
+                                                        <i class="fab fa-instagram fa-2x"></i>
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+
+                                            {% if user.facebook %}
+                                                <div class="col-2">
+                                                    <a href="https://www.facebook.com/{{ user.facebook }}/" class="user-social-link" target="_blank">
+                                                        <i class="fab fa-facebook-square fa-2x"></i>
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+
+                                            {% if user.email %}
+                                                <div class="col-2">
+                                                    <a href="mailto:{{ user.email }}" class="user-social-link">
+                                                        <i class="fas fa-envelope fa-2x"></i>
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="user-profile-image background-size-cover background-position-center margin-auto flex align-center justify-center background-white" {% if user.avatar %}style="background-image: url('{{ user.avatar }}');"{% endif %}>
+                                {% if not user.avatar %}
+                                    <i class="fas fa-user h1 text-gray"></i>
+                                {% endif %}
+                            </div>
+
+                            <div class="user-statistics text-center mt-40">
+                                <div class="user-statistic">
+                                    <div class="user-statistic-counter follower-count h2">
+                                        {{ user.followers }}
+                                    </div>
+                                    
+                                    <div class="user-statistic-subject">
+                                        {% if user.followers == 1 %}volger{% else %}volgers{% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="user-statistic text-center ml-30">
+                                    <div class="user-statistic-counter h2">
+                                        {{ user.content_count }}
+                                    </div>
+
+                                    <div class="user-statistic-subject">
+                                        {% if user.content_count == 1 %}bijdrage{% else %}bijdragen{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="user-content py-md-40 py-100">
+            <div class="container">
+                <div class="content">
+                    <h2 class="mb-40">
+                        Content van {{ user.firstname }}
+                    </h2>
+
+                    <div class="user-content-results mb-40">
+                        {% if user.content_count == 1 %}
+                            Er is {{ user.content_count }} resultaat
+                        {% else %}
+                            Er zijn {{ user.content_count }} resultaten
+                        {% endif %}
+                    </div>
+
+                    <div class="user-content-container">
+                        {% if user.user_content %}
+                        <div class="row">
+                            {% for content in user.user_content %}
+                            <div class="col-lg-6">
+                                <div class="content-overview-container mb-40">
+                                    <div class="content-overview-image background-position-center background-size-cover {% if not content.image %}background-offwhite{% endif %}" style='{% if content.image %}background-image: url("{{ content.image }}");{% endif %}'>
+                                        <div class="overview-sdg flex flex-col align-end py-md-20 p-30 ml-auto">
+                                        {% for sdg in content.sdgs %}
+                                            <a href="/sdgs/{{ sdg.id }}/{{ sdg.title|replace({' ': '-', ',': ""}) }}/" class="label sdg-{{ sdg.number }} mb-10">
+                                                {{ sdg.id }}. <span class="display-none-xs">{{ sdg.title|capitalize }}</span>
+                                            </a>
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="content-overview-information p-md-20 p-30">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3 class="m-0">
+                                                    {{ content.title }}
+                                                </h3>
+
+                                                <div class="overview-writer bold-text">
+                                                    <a href="/profile/{{ user.id }}/{{ user.slug }}/">
+                                                        Geplaatst door: {{ user.name }} 
+                                                    </a>
+                                                </div>
+
+                                                <div class="overview-date small-text mb-20">
+                                                    {{ content.created|date("l j F Y \\o\\m H:i \\u\\u\\r") }}
+                                                </div>
+
+                                                <div class="overview-intro height-md text-justify mb-0">
+                                                    {{ content.shortDescription }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="content-overview-actions p-md-20 p-30">
+                                        <div class="row align-items-end">
+                                            <div class="col-md-8">
+                                                <a href="/creation/{{ content.id }}/{{ content.slug }}" class="btn btn-primary">
+                                                    Lees verder
+                                                </a>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="overview-statistics flex flex-end flex-start-md flex-end-lg bold-text mt-md-20">
+                                                    <div class="statistic statistic-viewed">
+                                                        <i class="fa fa-eye"></i> {{ content.views }}
+                                                    </div>
+
+                                                    <div class="statistic statistic-liked ml-30">
+                                                        <i class="fa fa-heart"></i> {{ content.likes }}
+                                                    </div>
+
+                                                    <div class="statistic statistic-commented ml-30">
+                                                        <i class="fa fa-comment"></i> {{ content.comments }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            {% if user.content_count > 3 %}
+                                <a href="#" class="btn btn-primary">
+                                    Ik wil meer content van John zien
+                                </a>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="user-content background-offwhite py-md-40 py-100">
+            <div class="container">
+                <div class="content">
+                    <h2 class="mb-40">
+                        Behaalde prestaties van {{ user.firstname }}
+                    </h2>
+
+                    <div class="user-badges-container">
+                        <div class="row">
+                            {% for i in 0..3 %}
+                            <div class="col-md-6">
+                                <div class="badge-container">
+                                    <div class="row align-items-center">
+                                        <div class="col-xl-3">
+                                            <div class="badge green text-center">
+                                                <div class="circle">
+                                                    <i class="fa fa-bolt"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-9">
+                                            <div class="bold-text">
+                                                Bijgedragen aan SDG 1: Geen armoede
+                                            </div>
+
+                                            <div>
+                                                Nog twee oplossingen tot je volgende achievement!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        {# <a href="#" class="btn btn-primary mt-40">
+                            Ik wil alle behaalde prestaties van John zien
+                        </a> #}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="user-content py-md-40 py-100">
+            <div class="container">
+                <div class="content">
+                    <h2 class="mb-40">
+                        Contact opnemen met {{ user.firstname }}
+                    </h2>
+
+                    <div class="user-socials-container">
+                        <div class="row">
+                        {% if user_id %}
+                            {% if user.twitter %}
+                                <div class="col-md-6 col-xl-3">
+                                    <a href="https://twitter.com/{{ user.twitter }}/" class="user-social" target="_blank">
+                                        <div class="row align-items-center mb-lg-20 mb-md-40">
+                                            <div class="col-md-4">
+                                                <i class="fab fa-twitter fa-5x"></i>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <div class="bold-text">
+                                                    Twitter
+                                                </div>
+
+                                                <div>
+                                                    {{ user.twitter }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+
+                            {% if user.instagram %}
+                                <div class="col-md-6 col-xl-3">
+                                    <a href="https://www.instagram.com/{{ user.instagram }}/" class="user-social" target="_blank">
+                                        <div class="row align-items-center mb-lg-20 mb-md-40">
+                                            <div class="col-md-4">
+                                                <i class="fab fa-instagram fa-5x"></i>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <div class="bold-text">
+                                                    Instagram
+                                                </div>
+
+                                                <div>
+                                                    {{ user.instagram }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+
+                            {% if user.facebook %}
+                                <div class="col-md-6 col-xl-3">
+                                    <a href="https://www.facebook.com/{{ user.facebook }}/" class="user-social" target="_blank">
+                                        <div class="row align-items-center mb-lg-20 mb-md-40">
+                                            <div class="col-md-4">
+                                                <i class="fab fa-facebook-square fa-5x"></i>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <div class="bold-text">
+                                                    Facebook
+                                                </div>
+
+                                                <div>
+                                                    {{ user.facebook }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+
+                            {% if user.email %}
+                                <div class="col-md-6 col-xl-3">
+                                    <a href="mailto:{{ user.email }}" class="user-social">
+                                        <div class="row align-items-center mb-lg-20 mb-md-40">
+                                            <div class="col-md-4">
+                                                <i class="fas fa-envelope fa-5x"></i>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <div class="bold-text">
+                                                    E-mailadres
+                                                </div>
+
+                                                <div>
+                                                    {{ user.email }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="col-md-10">
+                                    Om met {{ user.firstname }} contact op te nemen dien je ingelogd te zijn met een account. Je kan hier <a href="/login/" class="bold-text">inloggen</a> of <a href="/register/" class="bold-text">registreren.</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

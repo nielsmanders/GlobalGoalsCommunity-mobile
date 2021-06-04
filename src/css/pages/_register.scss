@@ -1,0 +1,15 @@
+.register {
+    main {
+        display: flex;
+
+        .row {
+            flex: 1;
+            
+            .content-wrapper {        
+                .register-form {
+                    max-width: 58rem;
+                }
+            }
+        }
+    }
+}

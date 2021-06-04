@@ -1,0 +1,14 @@
+.label {
+    display: block;
+    border-radius: $global-border-radius;
+    color: $white;
+    font-weight: bold;
+    padding: .8rem 1rem;
+    border: .2rem solid transparent;
+}
+
+@each $name, $color in $sdg-colors {
+    .sdg-#{$name} {
+        background-color: $color;
+    }
+}

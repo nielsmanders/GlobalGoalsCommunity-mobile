@@ -1,0 +1,33 @@
+<ul class="breadcrumb background-offwhite text-highlight py-20 px-30">
+    <li>
+        <a href="/">
+            <i class="fas fa-globe-europe"></i>
+        </a>
+    </li>
+
+    {% if p == 'creation' %}
+        <li>
+            <a href="#" id="go-back">
+                Creatie
+            </a>
+        </li>
+    {% elseif p == 'sdgs' %}
+        <li>
+            <a href="/sdgs/">
+                SDG's
+            </a>
+        </li>
+    {% endif %}
+
+    {% if id2 %}
+        {% if p == 'creation' %}
+            <li>
+                {{ creation.title|capitalize }}
+            </li>
+        {% elseif p == 'sdgs' %}
+            <li>
+                {{ sdg.title|capitalize }}
+            </li>
+        {% endif %}
+    {% endif %}
+</ul>

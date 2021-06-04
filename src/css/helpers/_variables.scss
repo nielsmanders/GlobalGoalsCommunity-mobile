@@ -1,0 +1,66 @@
+// ------------------------------
+// Variables
+// ------------------------------
+
+// Typography
+$font-default: 'Open Sans', sans-serif;
+$font-secondary: 'Montserrat', sans-serif;
+
+$line-height: 1.5;
+
+// Colors
+$white           : #FFFFFF;
+$black           : #000000;
+$near-black      : #212A25;
+$light-grey      : #E4E4E4;
+
+$gray            : #B9B9B9;
+
+$highlight       : #05A66B;
+$highlight-dark  : #02734A; 
+$offwhite        : #F8F8F8;
+$gray            : #b9b9b9;
+$orange          : #FD6925;
+$red             : #E5243B;
+
+$one             : #E5243B;
+$two             : #DDA63A;
+$three           : #4C9F38;
+$four            : #C5192D;
+$five            : #FF3A21;
+$six             : #26BDE2;
+$seven           : #FCC30B;
+$eight           : #A21942;
+$nine            : #FD6925;
+$ten             : #DD1367;
+$eleven          : #FD9D24;
+$twelf           : #BF8B2E;
+$thirteen        : #3F7E44;
+$fourteen        : #0A97D9;
+$fifteen         : #56C02B;
+$sixteen         : #00689D;
+$seventeen       : #19486A;
+
+$sdg-colors:
+    "one"       #E5243B,
+    "two"       #DDA63A,
+    "three"     #4C9F38,
+    "four"      #C5192D,
+    "five"      #FF3A21,
+    "six"       #26BDE2,
+    "seven"     #FCC30B,
+    "eight"     #A21942,
+    "nine"      #FD6925,
+    "ten"       #DD1367,
+    "eleven"    #FD9D24,
+    "twelf"     #BF8B2E,
+    "thirteen"  #3F7E44,
+    "fourteen"  #0A97D9,
+    "fifteen"   #56C02B,
+    "sixteen"   #00689D,
+    "seventeen" #19486A;
+
+// Misc
+$global-border-radius   : .5rem !default;
+$global-transition      : all .3s ease-in-out;
+$global-box-shadow      : 0 .3rem .6rem rgba($near-black, .15);

@@ -1,0 +1,315 @@
+{% include 'pageheader.twig' %}
+
+<div class="page-content py-md-40 py-100">
+
+    <div class="page-navigation">
+        <div class="container">
+            <div class="content">
+                {% include 'breadcrumbs.twig' %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-information py-30">
+        
+        <img class="circles circles-content-left rotate-190" src="/images/circles/circles.png">
+
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-xl-7">
+                        <div class="row flex-column-reverse flex-xl-row">
+                            <div class="col-xl-8">
+                                <span id="creation-id" style="display: none">{{ creation.id }}</span>
+
+                                <h2 class="mb-5">
+                                    {{ creation.title }}
+                                </h2>
+                            </div>
+
+                            {% if user_id and user_id != creation.user_id %}
+                                <div class="col-xl-4">
+                                    <div class="flex flex-end">
+                                        <span id="save" class="mb-lg-20 btn btn-sm {% if creation.saved %}btn-orange saved{% else %}btn-primary{% endif %}" data-creationId="{{ creation.id }}" data-userId="{{ user_id}}">
+                                            <i class="fas fa-save"></i>
+                                            <p class="pl-20">
+                                                {% if creation.saved %}
+                                                    Bewaard
+                                                {% else %}
+                                                    Bewaren
+                                                {% endif %}
+                                            </p>
+                                        </span>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <p class="date">
+                            {{ content.created|date("l j F Y \\o\\m H:i \\u\\u\\r") }}
+                        </p>
+
+                        <div class="bold-text flex flex-start">
+                            <a href="/profile/{{ creation.user_id }}/{{ creation.creator_slug }}/" class="user-profile background-offwhite border-radius box-shadow flex flex-start align-center py-20 px-md-20 px-30 my-20">
+                                <div class="user-profile-image background-position-center background-size-cover flex align-center justify-center" {% if creation.creation_avatar %}style="background-image: url('{{ creation.creation_avatar }}');"{% endif %}>
+                                    {% if not creation.creation_avatar %}
+                                        <i class="fas fa-user h3 text-gray"></i>
+                                    {% endif %}
+                                </div>
+                                
+                                <span class="flex flex-col ml-20">
+                                    <span class="creator">
+                                        {{ creation.creator }} 
+                                    </span>
+
+                                    <span class="text-gray small-text">
+                                        {% if creation.creator_creations == 1 %}
+                                            {{ creation.creator_creation }} bijdrage
+                                        {% else %}
+                                            {{ creation.creator_creation }} bijdrages
+                                        {% endif %}
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+
+                        <div>
+                            {% include 'statistic-container.twig' %}
+                        </div>
+
+                        <div class="sdg-container flex flex-col align-start">
+                            {% for sdg in creation.sdgs %}
+                                <a href="/sdgs/{{ sdg.id }}/{{ sdg.slug }}/" class="label sdg-{{ sdg.number }} mt-20">
+                                    {{ sdg.id }}. {{ sdg.title|capitalize }}
+                                </a>
+                            {% endfor %}
+                        </div>
+
+                        <p class="text-justify mt-sm-20 mt-40 pb-40">
+                            {{ creation.content|raw }}
+                        </p>
+
+                        {% if creation.video %}
+                            {% if creation.type_id == 3%}
+                                <video class="content-image mb-40" height="400" controls>
+                                    <source src="{{ creation.video }}">
+                                    Your browser does not support the video tag.
+                                </video>
+                            {% elseif creation.type_id == 4 %}
+                                <audio class="full-width mb-40" controls>
+                                    <source src="{{ creation.video }}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            {% endif %}
+                        {% elseif creation.image %}
+                            <img class="content-image mb-40" src="{{ creation.image }}">
+                        {% endif %}
+                        
+                        {% include 'statistic-container.twig' %}
+
+                        <hr>
+
+                        <div class="content-actions flex space-between pt-40 pl-10 pr-10">
+                            {% if user_id %}
+                                <span id="like" class="action flex align-center {% if creation.liked %}liked{% endif %}" data-creationId="{{ creation.id }}" data-userId="{{ user_id }}">
+                                    <i class="{% if creation.liked %}fas{% else %}far{% endif %} fa-heart"></i>
+
+                                    <div class="pl-20 display-none-xs">
+                                        {% if creation.liked %}
+                                            Liked
+                                        {% else %}
+                                            Like
+                                        {% endif %}
+                                    </div>
+                                </span>
+                            {% endif %}
+
+                            {% if user_id %}
+                                <span class="action flex align-center">
+                                    <i id="comment" class="far fa-comment"></i>
+
+                                    <div class="pl-20 display-none-xs">
+                                        Reactie plaatsen
+                                    </div>
+                                </span>
+                            {% endif %}
+
+                            <span id="share" class="action flex align-center">
+                                <i class="fas fa-share-alt"></i>
+
+                                <div class="pl-20 display-none-xs">
+                                    Delen
+                                </div>
+                            </span>
+
+                            {% if user_id %}
+                                <span id="report" class="action flex align-center {% if creation.reported %}reported{% endif %}" data-creationId="{{ creation.id }}" data-userId="{{ user_id }}">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    
+                                    <div class="pl-20 display-none-xs">
+                                        {% if creation.liked %}
+                                            Gerapporteerd
+                                        {% else %}
+                                            Rapporteren
+                                        {% endif %}
+                                    </div>
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5">
+                        {% include 'usp-container.twig' %}
+
+                        {% if recent_creations %}
+                            <div class="recent-solutions ml-auto mt-80 display-none-md">
+                                <h3 class="pb-20">
+                                    Recente oplossingen
+                                </h3>
+
+                                {% for recent_creation in recent_creations %}
+                                    <a href="/creation/{{ recent_creation.id }}/{{ recent_creation.slug }}" class="show-arrow flex space-between pt-10">
+                                        <div class="pr-10">{{ recent_creation.title }}</div>
+                                        <i class="hidden fas fa-chevron-circle-right green"></i>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {% if popular_sdgs %}
+                            <div class="populair-sdgs ml-auto mt-80 display-none-md">
+                                <h3 class="pb-20">
+                                    Populaire SDG's
+                                </h3>
+
+                                {% for popular_sdg in popular_sdgs %}
+                                    <a href="/sdgs/{{ popular_sdg.id }}/{{ popular_sdg.slug }}/" class="show-arrow flex space-between pt-10">
+                                        <div class="pr-10">{{ popular_sdg.id }}. {{ popular_sdg.title }}</div>
+                                        <i class="hidden fas fa-chevron-circle-right green"></i>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="add-comment background-offwhite py-md-40 py-100">
+        
+        <img class="circles circles-content-right rotate-70" src="/images/circles/circles.png">
+    
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-xl-7">
+                        <h3 class="mb-10">
+                            Plaats een reactie
+                        </h3>
+
+                        {% if user_id %}
+                            <p class="mb-30">
+                                We proberen met elkaar een groter doel te bereiken, dus houd rekening met hoe je anderen aanspreekt.
+                            </p>
+
+                            <form id="comment-form" class="flex flex-col">
+                                <input type="hidden" name="content_id" value="{{ creation.id }}">
+
+                                <div class="comment-input flex flex-col">
+                                    <label for="title" class="bold-text mb-20">
+                                        Titel van de reactie
+                                    </label>
+                                    <input id="title" name="title" class="input input-title p-20" placeholder="Wat vond je van deze bijdrage?">
+                                </div>
+                                
+
+                                <div class="comment-input flex flex-col">
+                                    <label for="content" class="bold-text mt-20 mb-20">
+                                        Inhoud van de reactie
+                                    </label>
+                                    <textarea id="content" name="content" class="input input-content p-20" placeholder="Wat vond je van deze bijdrage?"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary align-self-end mt-20 mb-20">
+                                    Plaats reactie
+                                </button>
+                            </form>
+                        {% else %}
+                            <p class="mb-30">
+                                Om te reageren moet u ingelogd zijn
+                            </p>
+
+                            <a href="/login/" class="btn btn-primary">
+                                Inloggen
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comments py-md-40 py-100">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-xl-7">
+                        <h3 class="mb-10">
+                            {% if creation.comment_count == 1 %}
+                                Er is {{ creation.comment_count }} reactie
+                            {% else %}
+                                Er zijn {{ creation.comment_count }} reacties
+                            {% endif %}
+                        </h3>
+
+                        <p class="mb-40">
+                            {% if creation.comment_count == 0 %}
+                                Schrijf de eerste reactie!
+                            {% else %}
+                                Bekijk wat anderen vonden van deze bijdrage
+                            {% endif %}
+                        </p>
+
+                        {% for comment in creation.comments %}
+                            <div class="comment p-md-20 p-30 mt-40">
+                                <div class="comment-title flex space-between align-center mb-5 mb-sm-10">
+                                    <p class="h3">
+                                        {{ comment.title }}
+                                    </p>
+                                    {% if loop.first and comment.likes > 0 %}
+                                        <label class="label hot-comment">
+                                            Hot
+                                            <i class="fas fa-fire ml-10"></i>
+                                        </label>
+                                    {% endif %}
+                                </div>
+
+                                <div class="bold-text mb-5">
+                                    <a href="/profile/{{ comment.user_id }}/{{ comment.user_slug }}/">
+                                        Geplaatst door: {{ comment.name }} 
+                                    </a>
+                                </div>
+                                
+                                <p class="date mb-20">
+                                   {{ comment.date|date("l j F Y \\o\\m H:i \\u\\u\\r") }}
+                                </p>
+
+                                <p class="text-justify mb-10">
+                                    {{ comment.content }}
+                                </p>
+
+                                <span class="like-comment flex align-center {% if comment.liked %}liked{% endif %}" data-commentId="{{ comment.id }}" data-commentUser="{{ comment.user_id}}" data-userId="{{ user_id }}">
+                                    <i class="fas fa-heart mr-10"></i>
+                                    {{ comment.likes }}
+                                </span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

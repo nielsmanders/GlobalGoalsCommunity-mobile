@@ -1,0 +1,83 @@
+<div class="user-badges">
+    <div class="page-content">
+        <div class="badges-content background-offwhite py-100">
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="badges-container border-radius box-shadow background-white p-30">
+                                <h3>
+                                    Behaalde prestaties
+                                </h3>
+
+                                {% for i in 0..3 %}
+                                <div class="badge-container">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-3">
+                                            <div class="badge red text-center">
+                                                <div class="circle">
+                                                    <i class="fa fa-bolt"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-9">
+                                            <div class="bold-text">
+                                                Bijgedragen aan SDG 1: Geen armoede
+                                            </div>
+
+                                            <div>
+                                                Nog twee oplossingen tot je volgende achievement!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                <a href="/achievements/achieved/" class="btn btn-primary mt-20">
+                                    Bekijk alle behaalde prestaties
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="badges-container border-radius box-shadow background-white p-30">
+                                <h3>
+                                    Nog te behalen prestaties
+                                </h3>
+
+                                {% for i in 0..3 %}
+                                <div class="badge-container">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-3">
+                                            <div class="badge silver text-center">
+                                                <div class="circle">
+                                                    <i class="fa fa-bolt"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-9">
+                                            <div class="bold-text">
+                                                Bijgedragen aan SDG 1: Geen armoede
+                                            </div>
+
+                                            <div>
+                                                Nog twee oplossingen tot je volgende achievement!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                <a href="/achievements/not-achieved/" class="btn btn-primary mt-20">
+                                    Bekijk alle nog te behalen prestaties
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

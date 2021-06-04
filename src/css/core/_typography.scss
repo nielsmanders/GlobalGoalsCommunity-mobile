@@ -1,0 +1,111 @@
+%text {
+    font-style: normal;
+    margin: 0;
+}
+
+h1, .h1 {
+    @extend %text;
+    font-family: $font-secondary;
+    font-weight: 900;
+    font-size: 7rem;
+    letter-spacing: 15;
+    text-transform: uppercase;
+
+    @include breakpoint('bp-md') {
+        font-size: 4.5rem;
+    }
+
+    @include breakpoint('bp-xs') {
+        font-size: 3rem;
+    }
+}
+
+h2, .h2 {
+    @extend %text;
+    font-family: $font-secondary;
+    font-weight: 900;
+    font-size: 3.6rem;
+    letter-spacing: 15;
+    text-transform: uppercase;
+
+    @include breakpoint('bp-md') {
+        font-size: 2.8rem;
+    }
+
+    @include breakpoint('bp-xs') {
+        font-size: 2.5rem;
+    }
+}
+
+h3, .h3 {
+    @extend %text;
+    font-family: $font-secondary;
+    font-weight: 900;
+    font-size: 3rem;
+    letter-spacing: 15;
+    text-transform: uppercase;
+
+    @include breakpoint('bp-md') {
+        font-size: 2.5rem;
+    }
+}
+
+strong, b, .bold-text {
+    @extend %text;
+    font-weight: 700;
+}
+
+p {
+    @extend %text;
+    line-height: 1.5;
+}
+
+a {
+    color: $near-black;
+    text-decoration: none;
+    transition: $global-transition;
+}
+
+.light-text {
+    font-weight: 300;
+}
+
+small, .small-text {
+    font-size: 1.4rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+// Textcolors
+.text-offwhite {
+    color: $offwhite;
+}
+
+.text-white {
+    color: $white;
+}
+.text-gray {
+    color: $gray;
+}
+
+.text-highlight {
+    color: $highlight;
+}
+
+.text-highlight-dark {
+    color: $highlight-dark !important;
+}
+
+.text-dark {
+    color: $near-black !important;
+}
+
+.text-gray {
+    color: $gray;
+}
+
+.text-red {
+    color: $red;
+}

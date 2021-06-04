@@ -1,0 +1,35 @@
+.sdg-wrapper {
+    .sdg {
+        position: relative;
+        height: 25rem;
+        width: 35rem;
+        border-radius: $global-border-radius;
+        box-shadow: $global-box-shadow;
+
+        @include breakpoint ('bp-lg') {
+            width: 100%;
+        }
+    
+        h3, .h3 {
+            color: $offwhite;
+        }
+
+        h3 {
+            font-size: 2.6rem;
+
+            @include breakpoint ('bp-lg') {
+                font-size: 2.4rem;
+            }
+        }
+    
+        .sdg-icon {
+            position: absolute;
+            bottom: 0;
+            right: -5rem;
+            max-width: 25rem;
+            max-height: 15rem;
+            z-index: 0;
+            opacity: .25;
+        }
+    }
+}
